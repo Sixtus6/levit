@@ -60,6 +60,21 @@ class HomeScreenView extends StatelessWidget {
                                         ),
                                       ),
                                     ),
+                                    Positioned(
+                                      top: 0,
+                                      right: 0,
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          print('Top left corner tapped!');
+                                          // Add your desired functionality here
+                                        },
+                                        child: Container(
+                                          width: 50,
+                                          height: 100,
+                                          color: Colors.red,
+                                        ),
+                                      ),
+                                    ),
                                   ],
                                 ),
                               );
