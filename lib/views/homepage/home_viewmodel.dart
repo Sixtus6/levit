@@ -5,10 +5,10 @@ import 'package:stacked/stacked.dart';
 class HomeScreenViewModel extends BaseViewModel {
   late PageController pageController;
   void init() {
-    pageController = PageController(initialPage: 1, viewportFraction: 0.86);
+    pageController = PageController(initialPage: 0, viewportFraction: 0.86);
   }
 
-  int currentPage = 1;
+  int currentPage = 0;
   void setPageState(int value) {
     currentPage = value;
     print(currentPage);

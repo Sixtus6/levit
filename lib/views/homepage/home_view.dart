@@ -35,12 +35,33 @@ class HomeScreenView extends StatelessWidget {
                                 builder: (context, child) {
                                   return child!;
                                 },
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      color: ColorConfig.white,
-                                      borderRadius: BorderRadius.circular(20)),
-                                  height: SizeConfigs.getPercentageHeight(100),
-                                ).paddingSymmetric(horizontal: 10),
+                                child: Stack(
+                                  children: [
+                                    Container(
+                                      decoration: BoxDecoration(
+                                          color: ColorConfig.white,
+                                          borderRadius:
+                                              BorderRadius.circular(20)),
+                                      height:
+                                          SizeConfigs.getPercentageHeight(100),
+                                    ).paddingSymmetric(horizontal: 10),
+                                    Positioned(
+                                      top: 0,
+                                      left: 0,
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          print('Top left corner tapped!');
+                                          // Add your desired functionality here
+                                        },
+                                        child: Container(
+                                          width: 50,
+                                          height: 100,
+                                          color: Colors.red,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               );
                             },
                             itemCount: 3,
