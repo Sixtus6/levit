@@ -50,13 +50,20 @@ class HomeScreenView extends StatelessWidget {
                                       left: 0,
                                       child: GestureDetector(
                                         onTap: () {
+                                          model.pageController.animateToPage(
+                                              model.currentPage <= 0
+                                                  ? 0
+                                                  : model.currentPage - 1,
+                                              duration:
+                                                  const Duration(seconds: 1),
+                                              curve: Curves.easeInOut);
                                           print('Top left corner tapped!');
                                           // Add your desired functionality here
                                         },
                                         child: Container(
-                                          width: 50,
+                                          width: 100,
                                           height: 100,
-                                          color: Colors.red,
+                                          color: Colors.transparent,
                                         ),
                                       ),
                                     ),
@@ -65,13 +72,22 @@ class HomeScreenView extends StatelessWidget {
                                       right: 0,
                                       child: GestureDetector(
                                         onTap: () {
+                                          model.pageController.animateToPage(
+                                              model.currentPage >= 5
+                                                  ? 5
+                                                  : model.currentPage + 1,
+                                              duration:
+                                                  const Duration(seconds: 1),
+                                              curve: Curves.easeInOut);
+
+                                          // Add your desired functionality here
                                           print('Top right corner tapped!');
                                           // Add your desired functionality here
                                         },
                                         child: Container(
-                                          width: 50,
+                                          width: 100,
                                           height: 100,
-                                          color: Colors.red,
+                                          color: Colors.transparent,
                                         ),
                                       ),
                                     ),
