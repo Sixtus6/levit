@@ -40,7 +40,9 @@ class HomeScreenView extends StatelessWidget {
                                 Positioned(
                                   top: 18,
                                   left: 20,
-                                  child: indicatorWidget(),
+                                  child: indicatorWidget(
+                                    currentScreen: false,
+                                  ),
                                 )
                               ],
                             ),
@@ -68,7 +70,8 @@ class indicatorWidget extends StatelessWidget {
       width: 65,
       height: 3.5,
       decoration: BoxDecoration(
-          color: Colors.amber, borderRadius: BorderRadius.circular(20)),
+          color: currentScreen ? ColorConfig.primary : ColorConfig.scaffold,
+          borderRadius: BorderRadius.circular(20)),
     );
   }
 }
