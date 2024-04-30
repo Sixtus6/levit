@@ -9,5 +9,9 @@ class HomeScreenViewModel extends BaseViewModel {
   }
 
   int currentPage = 1;
-  void setPageState() {}
+  void setPageState(int value) {
+    currentPage = value;
+    print(currentPage);
+    notifyListeners();
+  }
 }

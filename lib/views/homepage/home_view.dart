@@ -25,6 +25,9 @@ class HomeScreenView extends StatelessWidget {
                           height: SizeConfigs.getPercentageHeight(70),
                           child: PageView.builder(
                             controller: model.pageController,
+                            onPageChanged: (value) {
+                              model.setPageState(value);
+                            },
                             itemBuilder: (BuildContext context, int index) {
                               return AnimatedBuilder(
                                 animation: model.pageController,
@@ -48,8 +51,8 @@ class HomeScreenView extends StatelessWidget {
                           child: Row(
                               children: List.generate(
                             5,
-                            (index) => const indicatorWidget(
-                              currentScreen: true,
+                            (index) => indicatorWidget(
+                              currentScreen: index == model.currentPage,
                             ).paddingSymmetric(horizontal: 4),
                           )),
                         )
