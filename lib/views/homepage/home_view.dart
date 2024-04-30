@@ -24,6 +24,7 @@ class HomeScreenView extends StatelessWidget {
                         SizedBox(
                           height: SizeConfigs.getPercentageHeight(70),
                           child: PageView.builder(
+                            physics: const NeverScrollableScrollPhysics(),
                             controller: model.pageController,
                             onPageChanged: (value) {
                               model.setPageState(value);
@@ -42,7 +43,7 @@ class HomeScreenView extends StatelessWidget {
                                 ).paddingSymmetric(horizontal: 10),
                               );
                             },
-                            itemCount: 5,
+                            itemCount: 3,
                           ),
                         ),
                         Positioned(
