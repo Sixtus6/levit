@@ -19,6 +19,7 @@ class HomeScreenView extends StatelessWidget {
                 backgroundColor: ColorConfig.scaffold,
                 body: Column(
                   children: [
+                    50.height,
                     Stack(
                       children: [
                         SizedBox(
@@ -47,7 +48,7 @@ class HomeScreenView extends StatelessWidget {
                                     ).paddingSymmetric(horizontal: 10),
                                     Positioned(
                                       top: 0,
-                                      left: 0,
+                                      left: 10,
                                       child: GestureDetector(
                                         onTap: () {
                                           model.pageController.animateToPage(
@@ -69,12 +70,12 @@ class HomeScreenView extends StatelessWidget {
                                     ),
                                     Positioned(
                                       top: 0,
-                                      right: 0,
+                                      right: 10,
                                       child: GestureDetector(
                                         onTap: () {
                                           model.pageController.animateToPage(
-                                              model.currentPage >= 5
-                                                  ? 5
+                                              model.currentPage >= 4
+                                                  ? 4
                                                   : model.currentPage + 1,
                                               duration:
                                                   const Duration(seconds: 1),
@@ -95,7 +96,7 @@ class HomeScreenView extends StatelessWidget {
                                 ),
                               );
                             },
-                            itemCount: 3,
+                            itemCount: 5,
                           ),
                         ),
                         Positioned(
