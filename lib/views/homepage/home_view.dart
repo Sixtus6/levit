@@ -65,7 +65,7 @@ class HomeScreenView extends StatelessWidget {
                                       right: 0,
                                       child: GestureDetector(
                                         onTap: () {
-                                          print('Top left corner tapped!');
+                                          print('Top right corner tapped!');
                                           // Add your desired functionality here
                                         },
                                         child: Container(
