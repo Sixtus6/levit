@@ -38,14 +38,88 @@ class HomeScreenView extends StatelessWidget {
                                 },
                                 child: Stack(
                                   children: [
-                                    Container(
-                                      decoration: BoxDecoration(
-                                          color: ColorConfig.white,
-                                          borderRadius:
-                                              BorderRadius.circular(20)),
-                                      height:
-                                          SizeConfigs.getPercentageHeight(100),
-                                    ).paddingSymmetric(horizontal: 10),
+                                    GestureDetector(
+                                      child: Draggable(
+                                        data: 3,
+                                        feedback: Container(
+                                          color: Colors.red,
+                                          height: 200,
+                                          width: 200,
+                                        ),
+                                        childWhenDragging: Stack(
+                                          children: [
+                                            Container(
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                    color: ColorConfig.primary,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            20)),
+                                                height: SizeConfigs
+                                                    .getPercentageHeight(120),
+                                              ).paddingSymmetric(
+                                                  horizontal: 10),
+                                            ),
+                                            Positioned(
+                                              //top: 0,
+                                              left: 10,
+                                              child: DragTarget(
+                                                onWillAccept: (data) => true,
+                                                builder: (BuildContext context,
+                                                        accepted, reject) =>
+                                                    Container(
+                                                  width: 100,
+                                                  height: SizeConfigs
+                                                      .getPercentageHeight(200),
+                                                  color: Colors.blue,
+                                                ),
+                                                onAcceptWithDetails: (details) {
+                                                  print("leavwe");
+                                                },
+                                                onLeave: (data) {
+                                                  print("leave");
+                                                },
+                                                onAccept: (data) => print(
+                                                    "it has saved for left ${data}"),
+                                              ),
+                                            ),
+                                            Positioned(
+                                              bottom: 0,
+                                              left: 20,
+                                              child: DragTarget(
+                                                onWillAccept: (data) => true,
+                                                builder: (BuildContext context,
+                                                        accepted, reject) =>
+                                                    Container(
+                                                  height: SizeConfigs
+                                                      .getPercentageHeight(10),
+                                                  width: SizeConfigs
+                                                      .getPercentageWidth(80),
+                                                  color: Colors.blue,
+                                                ),
+                                                onAcceptWithDetails: (details) {
+                                                  print("leavwe1");
+                                                },
+                                                onLeave: (data) {
+                                                  print("leave1");
+                                                },
+                                                onAccept: (data) => print(
+                                                    "it has saved for left ${data}"),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                              color: ColorConfig.white,
+                                              borderRadius:
+                                                  BorderRadius.circular(20)),
+                                          height:
+                                              SizeConfigs.getPercentageHeight(
+                                                  100),
+                                        ).paddingSymmetric(horizontal: 10),
+                                      ),
+                                    ),
                                     Positioned(
                                       top: 0,
                                       left: 10,
