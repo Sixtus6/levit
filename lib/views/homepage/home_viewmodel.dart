@@ -7,4 +7,7 @@ class HomeScreenViewModel extends BaseViewModel {
   void init() {
     pageController = PageController(initialPage: 1, viewportFraction: 0.86);
   }
+
+  int currentPage = 1;
+  void setPageState() {}
 }

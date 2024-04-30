@@ -19,37 +19,41 @@ class HomeScreenView extends StatelessWidget {
                 backgroundColor: ColorConfig.scaffold,
                 body: Column(
                   children: [
-                    SizedBox(
-                      height: SizeConfigs.getPercentageHeight(70),
-                      child: PageView.builder(
-                        controller: model.pageController,
-                        itemBuilder: (BuildContext context, int index) {
-                          return AnimatedBuilder(
-                            animation: model.pageController,
-                            builder: (context, child) {
-                              return child!;
-                            },
-                            child: Stack(
-                              children: [
-                                Container(
+                    Stack(
+                      children: [
+                        SizedBox(
+                          height: SizeConfigs.getPercentageHeight(70),
+                          child: PageView.builder(
+                            controller: model.pageController,
+                            itemBuilder: (BuildContext context, int index) {
+                              return AnimatedBuilder(
+                                animation: model.pageController,
+                                builder: (context, child) {
+                                  return child!;
+                                },
+                                child: Container(
                                   decoration: BoxDecoration(
                                       color: ColorConfig.white,
                                       borderRadius: BorderRadius.circular(20)),
                                   height: SizeConfigs.getPercentageHeight(100),
                                 ).paddingSymmetric(horizontal: 10),
-                                Positioned(
-                                  top: 18,
-                                  left: 20,
-                                  child: indicatorWidget(
-                                    currentScreen: false,
-                                  ),
-                                )
-                              ],
-                            ),
-                          );
-                        },
-                        itemCount: 5,
-                      ),
+                              );
+                            },
+                            itemCount: 5,
+                          ),
+                        ),
+                        Positioned(
+                          top: 18,
+                          left: 50,
+                          child: Row(
+                              children: List.generate(
+                            5,
+                            (index) => const indicatorWidget(
+                              currentScreen: true,
+                            ).paddingSymmetric(horizontal: 4),
+                          )),
+                        )
+                      ],
                     )
                   ],
                 ),
@@ -67,7 +71,7 @@ class indicatorWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 65,
+      width: 50,
       height: 3.5,
       decoration: BoxDecoration(
           color: currentScreen ? ColorConfig.primary : ColorConfig.scaffold,
