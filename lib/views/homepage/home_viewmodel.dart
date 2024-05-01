@@ -5,6 +5,7 @@ import 'package:stacked/stacked.dart';
 
 class HomeScreenViewModel extends BaseViewModel {
   late List<String> imageList = [];
+  late List<String> navIcon = [];
   late PageController pageController;
   bool isDraggedToLeft = false;
   bool isDraggedToBottom = false;
