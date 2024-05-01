@@ -87,14 +87,18 @@ class HomeScreenView extends StatelessWidget {
                                                       .getPercentageHeight(200),
                                                   color: Colors.transparent,
                                                 ),
-                                                onAcceptWithDetails: (details) {
-                                                  print("leavwe");
-                                                },
+                                                // onAcceptWithDetails: (details) {
+                                                //   model.deleteImage(int.parse(
+                                                //       details.data.toString()));
+                                                //   print("leavwe");
+                                                // },
                                                 onLeave: (data) {
-                                                  print("leave");
+                                                  model.deleteImage(int.parse(
+                                                      data.toString()));
                                                 },
-                                                onAccept: (data) => print(
-                                                    "it has saved for left ${data}"),
+                                                // onAccept: (data) =>
+                                                //     model.deleteImage(int.parse(
+                                                //         data.toString())),
                                               ),
                                             ),
                                             Positioned(
@@ -111,18 +115,23 @@ class HomeScreenView extends StatelessWidget {
                                                       .getPercentageWidth(80),
                                                   color: Colors.transparent,
                                                 ),
-                                                onAcceptWithDetails: (details) {
-                                                  print("leavwe1");
-                                                  print(int.parse(
-                                                      details.data.toString()));
+                                                // onAcceptWithDetails:
+                                                //     (details) {
+                                                //   print("leavwe1");
+                                                //   print(int.parse(details.data
+                                                //       .toString()));
 
-                                                  model.deleteImage();
-                                                },
+                                                //   model.deleteImage(int.parse(
+                                                //       details.data
+                                                //           .toString()));
+                                                // },
                                                 onLeave: (data) {
-                                                  //   model.deleteImage(data);
-                                                  print("leave1");
+                                                  model.deleteImage(int.parse(
+                                                      data.toString()));
+                                                  print("leave1 ${data}");
                                                 },
-                                                // onAccept: (int data) => model.deleteImage(data)
+                                                // onAccept: (int data) =>
+                                                //     model.deleteImage(data)
                                               ),
                                             ),
                                           ],
@@ -202,9 +211,18 @@ class HomeScreenView extends StatelessWidget {
                           child: Row(
                               children: List.generate(
                             model.imageList.length,
-                            (index) => indicatorWidget(
-                              currentScreen: index == model.currentPage,
-                            ).paddingSymmetric(horizontal: 4),
+                            (index) {
+                              print("------------------");
+                              print(model.imageList);
+                              print([
+                                index,
+                                model.currentPage,
+                                model.imageList.indexOf(model.imageList[index])
+                              ]);
+                              return indicatorWidget(
+                                currentScreen: index == model.currentPage,
+                              ).paddingSymmetric(horizontal: 4);
+                            },
                           )),
                         )
                       ],

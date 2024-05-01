@@ -9,6 +9,7 @@ class HomeScreenViewModel extends BaseViewModel {
   bool isDraggedToLeft = false;
   bool isDraggedToBottom = false;
   void init() {
+    print("initialize");
     imageList = [
       ImageConfig.image1,
       ImageConfig.image2,
@@ -20,7 +21,13 @@ class HomeScreenViewModel extends BaseViewModel {
   }
 
   deleteImage(int indez) {
-    imageList.remove(indez);
+    print("removed Elememnt ${indez}");
+    print(imageList.length);
+    print([imageList[indez]]);
+    imageList.remove(imageList[indez]);
+    print(imageList);
+    print('currentPage; ${currentPage}');
+    // currentPage = imageList.length > currentPage;
     notifyListeners();
   }
 
