@@ -41,7 +41,7 @@ class HomeScreenView extends StatelessWidget {
                                   children: [
                                     GestureDetector(
                                       child: Draggable(
-                                        data: model.imageList[index],
+                                        data: index,
                                         feedback: Container(
                                           width: SizeConfigs.getPercentageWidth(
                                               75),
@@ -113,12 +113,16 @@ class HomeScreenView extends StatelessWidget {
                                                 ),
                                                 onAcceptWithDetails: (details) {
                                                   print("leavwe1");
+                                                  print(int.parse(
+                                                      details.data.toString()));
+
+                                                  model.deleteImage();
                                                 },
                                                 onLeave: (data) {
+                                                  //   model.deleteImage(data);
                                                   print("leave1");
                                                 },
-                                                onAccept: (data) => print(
-                                                    "it has saved for left ${data}"),
+                                                // onAccept: (int data) => model.deleteImage(data)
                                               ),
                                             ),
                                           ],

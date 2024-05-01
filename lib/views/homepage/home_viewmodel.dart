@@ -19,6 +19,11 @@ class HomeScreenViewModel extends BaseViewModel {
     pageController = PageController(initialPage: 0, viewportFraction: 0.87);
   }
 
+  deleteImage(int indez) {
+    imageList.remove(indez);
+    notifyListeners();
+  }
+
   setDraggedLeftListener(bool value) {
     isDraggedToLeft = value;
     notifyListeners();
