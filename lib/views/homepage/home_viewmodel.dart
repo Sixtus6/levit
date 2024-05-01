@@ -18,6 +18,8 @@ class HomeScreenViewModel extends BaseViewModel {
       ImageConfig.image4,
       ImageConfig.image5
     ];
+
+    navIcon = [];
     pageController = PageController(initialPage: 0, viewportFraction: 0.87);
   }
 
