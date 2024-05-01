@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:luvit/config/color.dart';
+import 'package:luvit/config/images.dart';
 import 'package:luvit/config/size.dart';
 import 'package:luvit/views/homepage/home_viewmodel.dart';
 import 'package:nb_utils/nb_utils.dart';
@@ -40,26 +41,39 @@ class HomeScreenView extends StatelessWidget {
                                   children: [
                                     GestureDetector(
                                       child: Draggable(
-                                        data: 3,
+                                        data: model.imageList[index],
                                         feedback: Container(
-                                          color: Colors.red,
-                                          height: 200,
-                                          width: 200,
+                                          width: SizeConfigs.getPercentageWidth(
+                                              75),
+                                          decoration: BoxDecoration(
+                                              image: DecorationImage(
+                                                fit: BoxFit.fitHeight,
+                                                image: AssetImage(
+                                                    model.imageList[index]),
+                                              ),
+                                              //  color: ColorConfig.white,
+                                              borderRadius:
+                                                  BorderRadius.circular(20)),
+                                          height:
+                                              SizeConfigs.getPercentageHeight(
+                                                  60),
                                         ),
                                         childWhenDragging: Stack(
                                           children: [
                                             Container(
-                                              child: Container(
-                                                decoration: BoxDecoration(
-                                                    color: ColorConfig.primary,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            20)),
-                                                height: SizeConfigs
-                                                    .getPercentageHeight(120),
-                                              ).paddingSymmetric(
-                                                  horizontal: 10),
-                                            ),
+                                              decoration: BoxDecoration(
+                                                  // image: DecorationImage(
+                                                  //   fit: BoxFit.fitHeight,
+                                                  //   image: AssetImage(
+                                                  //       model.imageList[index]),
+                                                  // ),
+                                                  color: Colors.black,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          20)),
+                                              height: SizeConfigs
+                                                  .getPercentageHeight(100),
+                                            ).paddingSymmetric(horizontal: 10),
                                             Positioned(
                                               //top: 0,
                                               left: 10,
@@ -71,7 +85,7 @@ class HomeScreenView extends StatelessWidget {
                                                   width: 100,
                                                   height: SizeConfigs
                                                       .getPercentageHeight(200),
-                                                  color: Colors.blue,
+                                                  color: Colors.transparent,
                                                 ),
                                                 onAcceptWithDetails: (details) {
                                                   print("leavwe");
@@ -95,7 +109,7 @@ class HomeScreenView extends StatelessWidget {
                                                       .getPercentageHeight(10),
                                                   width: SizeConfigs
                                                       .getPercentageWidth(80),
-                                                  color: Colors.blue,
+                                                  color: Colors.transparent,
                                                 ),
                                                 onAcceptWithDetails: (details) {
                                                   print("leavwe1");
@@ -111,7 +125,12 @@ class HomeScreenView extends StatelessWidget {
                                         ),
                                         child: Container(
                                           decoration: BoxDecoration(
-                                              color: ColorConfig.white,
+                                              image: DecorationImage(
+                                                fit: BoxFit.fitHeight,
+                                                image: AssetImage(
+                                                    model.imageList[index]),
+                                              ),
+                                              // color: ColorConfig.white,
                                               borderRadius:
                                                   BorderRadius.circular(20)),
                                           height:
@@ -170,7 +189,7 @@ class HomeScreenView extends StatelessWidget {
                                 ),
                               );
                             },
-                            itemCount: 5,
+                            itemCount: model.imageList.length,
                           ),
                         ),
                         Positioned(
@@ -178,7 +197,7 @@ class HomeScreenView extends StatelessWidget {
                           left: 50,
                           child: Row(
                               children: List.generate(
-                            5,
+                            model.imageList.length,
                             (index) => indicatorWidget(
                               currentScreen: index == model.currentPage,
                             ).paddingSymmetric(horizontal: 4),
