@@ -238,7 +238,23 @@ class HomeScreenView extends StatelessWidget {
                     ],
                   ),
                   bottomNavigationBar: Stack(
+                    alignment: Alignment.bottomCenter,
                     children: [
+                      Container(
+                        height: 110,
+                      ),
+                      Positioned(
+                        top: 0,
+                        child: Container(
+                          width: 110,
+                          height: 110,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(100),
+                              color: Colors.black,
+                              border: Border.all(
+                                  width: 2, color: ColorConfig.shade)),
+                        ),
+                      ),
                       Container(
                         height: 90,
                         decoration: BoxDecoration(
@@ -255,23 +271,16 @@ class HomeScreenView extends StatelessWidget {
                                   top: Radius.circular(20))),
                         ),
                       ),
-                      Container(
-                        width: 100.0, // Width of the circular avatar
-                        height: 100.0, // Height of the circular avatar
-                        decoration: BoxDecoration(
-                          shape:
-                              BoxShape.circle, // Makes the container circular
-                          color: Colors
-                              .blue, // Background color of the circular avatar
-                        ),
-                        child: Center(
-                          child: Text(
-                            'AB', // Text inside the circular avatar
-                            style: TextStyle(
-                              fontSize: 40.0,
-                              color: Colors.white,
-                            ),
-                          ),
+                      Positioned(
+                        top: 10,
+                        child: Container(
+                          width: 160,
+                          height: 160,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(100),
+                              color: Colors.black,
+                              border:
+                                  Border.all(width: 2, color: Colors.black)),
                         ),
                       ),
                     ],
