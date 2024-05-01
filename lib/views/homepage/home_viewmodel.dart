@@ -24,10 +24,13 @@ class HomeScreenViewModel extends BaseViewModel {
     print("removed Elememnt ${indez}");
     print(imageList.length);
     print([imageList[indez]]);
-    imageList.remove(imageList[indez]);
+
     print(imageList);
     print('currentPage; ${currentPage}');
-    // currentPage = imageList.length > currentPage;
+
+    imageList.remove(imageList[indez]);
+    currentPage =
+        currentPage >= imageList.length ? currentPage - 1 : currentPage;
     notifyListeners();
   }
 

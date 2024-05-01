@@ -213,7 +213,6 @@ class HomeScreenView extends StatelessWidget {
                             model.imageList.length,
                             (index) {
                               print("------------------");
-                              print(model.imageList);
                               print([
                                 index,
                                 model.currentPage,
