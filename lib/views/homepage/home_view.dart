@@ -240,9 +240,15 @@ class HomeScreenView extends StatelessWidget {
                                                                     ? card1().paddingSymmetric(
                                                                         horizontal:
                                                                             20)
-                                                                    : card2().paddingSymmetric(
-                                                                        horizontal:
-                                                                            20),
+                                                                    : model.imageList[index] ==
+                                                                            ImageConfig
+                                                                                .image2
+                                                                        ? card2().paddingSymmetric(
+                                                                            horizontal:
+                                                                                20)
+                                                                        : card3().paddingSymmetric(
+                                                                            horizontal:
+                                                                                20),
                                                                 Image.asset(
                                                                   ImageConfig
                                                                       .arrow,
@@ -500,6 +506,91 @@ class card2 extends StatelessWidget {
             5.height,
             Text(
               "이상한 이야기하시는 분 바로 차단입니다",
+              style: TextStyle(color: ColorConfig.gray, fontSize: 15),
+            ),
+          ],
+        ),
+        Container().expand(),
+        Image.asset(
+          ImageConfig.loveCircle,
+          height: 50,
+        ).paddingTop(50)
+      ],
+    );
+  }
+}
+
+class card3 extends StatelessWidget {
+  const card3({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(60),
+                color: Colors.black,
+              ),
+              height: 35,
+              width: 90,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Image.asset(
+                    ImageConfig.starIcon,
+                    height: 20,
+                  ),
+                  Text(
+                    "29,930",
+                    style: TextStyle(color: ColorConfig.white, fontSize: 15),
+                  ),
+                ],
+              ),
+            ).paddingBottom(10),
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(60),
+                color: Colors.black,
+              ),
+              height: 35,
+              width: 90,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Image.asset(
+                    ImageConfig.starIcon,
+                    height: 20,
+                  ),
+                  Text(
+                    "29,930",
+                    style: TextStyle(color: ColorConfig.white, fontSize: 15),
+                  ),
+                ],
+              ),
+            ).paddingBottom(10),
+            Row(
+              children: [
+                Text(
+                  "잭과분홍콩나물",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: ColorConfig.white,
+                      fontSize: 28),
+                ),
+                Text(
+                  " 25",
+                  style: TextStyle(color: ColorConfig.gray, fontSize: 25),
+                ),
+              ],
+            ),
+            Text(
+              "서울 · 2km 거리에 있음",
               style: TextStyle(color: ColorConfig.gray, fontSize: 15),
             ),
           ],
