@@ -310,9 +310,9 @@ class HomeScreenView extends StatelessWidget {
                       ),
                       NavWidget(
                         label: '채팅',
-                        left: 285,
+                        left: 286,
                         //selected: true,
-                        image: ImageConfig.navIcon,
+                        image: ImageConfig.chatIcon,
                       ),
                     ],
                   )),
