@@ -241,6 +241,17 @@ class HomeScreenView extends StatelessWidget {
                                                                               .start,
                                                                       children: [
                                                                         Container(
+                                                                          decoration:
+                                                                              BoxDecoration(
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(60),
+                                                                            color:
+                                                                                Colors.black,
+                                                                          ),
+                                                                          height:
+                                                                              35,
+                                                                          width:
+                                                                              90,
                                                                           child:
                                                                               Row(
                                                                             mainAxisAlignment:
@@ -256,17 +267,6 @@ class HomeScreenView extends StatelessWidget {
                                                                               ),
                                                                             ],
                                                                           ),
-                                                                          decoration:
-                                                                              BoxDecoration(
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(60),
-                                                                            color:
-                                                                                Colors.black,
-                                                                          ),
-                                                                          height:
-                                                                              35,
-                                                                          width:
-                                                                              90,
                                                                         ).paddingBottom(
                                                                             10),
                                                                         Row(
