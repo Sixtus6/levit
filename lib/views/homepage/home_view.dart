@@ -314,6 +314,12 @@ class HomeScreenView extends StatelessWidget {
                         //selected: true,
                         image: ImageConfig.chatIcon,
                       ),
+                      NavWidget(
+                        label: '마이',
+                        left: 365,
+                        //selected: true,
+                        image: ImageConfig.personIcon,
+                      ),
                     ],
                   )),
             )));
@@ -345,11 +351,12 @@ class NavWidget extends StatelessWidget {
             width: 43,
             height: 43,
             decoration: BoxDecoration(
-                image: DecorationImage(image: AssetImage(image)),
-                borderRadius: BorderRadius.circular(100),
-                //  color: Colors.amber,
-                border: Border.all(width: 2, color: Colors.black)),
+              image: DecorationImage(image: AssetImage(image)),
+              // borderRadius: BorderRadius.circular(100),
+              //  color: Colors.amber,
+            ),
           ),
+          5.height,
           Text(
             label,
             style: TextStyle(
