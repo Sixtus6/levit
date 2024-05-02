@@ -299,21 +299,7 @@ class HomeScreenView extends StatelessWidget {
                       NavWidget(
                         label: '홈',
                         left: 10,
-                      ),
-                      Positioned(
-                        top: 33,
-                        left: 90,
-                        child: Container(
-                          width: 75,
-                          height: 75,
-                          decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  image: AssetImage(ImageConfig.star)),
-                              borderRadius: BorderRadius.circular(100),
-                              //  color: Colors.amber,
-                              border:
-                                  Border.all(width: 2, color: Colors.black)),
-                        ),
+                        selected: true,
                       ),
                     ],
                   )),
@@ -327,21 +313,24 @@ class NavWidget extends StatelessWidget {
     required this.left,
     required this.label,
     this.selected = false,
+    required this.image,
   });
   final double left;
   final String label;
+  final String image;
+
   bool selected;
 
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      top: 33,
-      left: 10,
+      top: 40,
+      left: left,
       child: Column(
         children: [
           Container(
-            width: 48,
-            height: 48,
+            width: 43,
+            height: 43,
             decoration: BoxDecoration(
                 image: const DecorationImage(
                     image: AssetImage(ImageConfig.homeIcon)),
