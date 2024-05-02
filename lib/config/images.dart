@@ -9,4 +9,10 @@ class ImageConfig {
   static const String navIcon = "assets/icon/map.png";
   static const String personIcon = "assets/icon/person.png";
   static const String star = "assets/icon/star.png";
+  static const String starIcon = "assets/icon/starIcon.png";
+  static const String handIcon = "assets/icon/handicon.png";
+  static const String muscle = "assets/icon/muscle.png";
+  static const String lovePink = "assets/icon/lovepink.png";
+  static const String wine = "assets/icon/wine.png";
+  static const String loveCircle = "assets/icon/love.png";
 }

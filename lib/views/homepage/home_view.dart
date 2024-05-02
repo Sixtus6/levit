@@ -80,6 +80,9 @@ class HomeScreenView extends StatelessWidget {
                                                     height: SizeConfigs
                                                         .getPercentageHeight(
                                                             60),
+                                                    child: const Column(
+                                                      children: [],
+                                                    ),
                                                   ),
                                                   childWhenDragging: Stack(
                                                     children: [
