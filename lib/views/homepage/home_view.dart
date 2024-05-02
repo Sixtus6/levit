@@ -227,7 +227,7 @@ class HomeScreenView extends StatelessWidget {
                                                                 ],
                                                               ),
                                                             ),
-                                                            height: 300,
+                                                            height: 400,
                                                             child: Column(
                                                               mainAxisAlignment:
                                                                   MainAxisAlignment
@@ -553,27 +553,6 @@ class card3 extends StatelessWidget {
                 ],
               ),
             ).paddingBottom(10),
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(60),
-                color: Colors.black,
-              ),
-              height: 35,
-              width: 90,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Image.asset(
-                    ImageConfig.starIcon,
-                    height: 20,
-                  ),
-                  Text(
-                    "29,930",
-                    style: TextStyle(color: ColorConfig.white, fontSize: 15),
-                  ),
-                ],
-              ),
-            ).paddingBottom(10),
             Row(
               children: [
                 Text(
@@ -589,9 +568,45 @@ class card3 extends StatelessWidget {
                 ),
               ],
             ),
-            Text(
-              "서울 · 2km 거리에 있음",
-              style: TextStyle(color: ColorConfig.gray, fontSize: 15),
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(100),
+                border: Border.all(color: Color(0xffFF006B)),
+                color: Color(0xff621133).withOpacity(0.6),
+              ),
+              height: 45,
+              width: 170,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Image.asset(
+                    ImageConfig.lovePink,
+                    height: 20,
+                  ),
+                  const Text(
+                    "진지한 연애를 찾는 중",
+                    style: TextStyle(
+                        color: Color(0xffFF006B),
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+            ).paddingBottom(10),
+            Row(
+              children: [
+                itemWidget(
+                  img: ImageConfig.wine,
+                  width: 100,
+                  text: '전혀 안 함',
+                ).paddingBottom(10),
+                7.width,
+                itemWidget(
+                  img: ImageConfig.wine,
+                  width: 100,
+                  text: '전혀 안 함',
+                ).paddingBottom(10),
+              ],
             ),
           ],
         ),
@@ -601,6 +616,45 @@ class card3 extends StatelessWidget {
           height: 50,
         ).paddingTop(50)
       ],
+    );
+  }
+}
+
+class itemWidget extends StatelessWidget {
+  const itemWidget({
+    super.key,
+    required this.width,
+    required this.img,
+    required this.text,
+  });
+  final double width;
+  final String img;
+  final String text;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(100),
+        color: Colors.black,
+      ),
+      height: 40,
+      width: width,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Image.asset(
+            img,
+            height: 18,
+          ),
+          Text(
+            text,
+            style: TextStyle(
+              color: Color(0xffF5F5F5),
+              fontSize: 14,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
