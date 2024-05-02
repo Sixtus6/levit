@@ -233,6 +233,75 @@ class HomeScreenView extends StatelessWidget {
                                                                   MainAxisAlignment
                                                                       .end,
                                                               children: [
+                                                                Row(
+                                                                  children: [
+                                                                    Column(
+                                                                      crossAxisAlignment:
+                                                                          CrossAxisAlignment
+                                                                              .start,
+                                                                      children: [
+                                                                        Container(
+                                                                          child:
+                                                                              Row(
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.spaceEvenly,
+                                                                            children: [
+                                                                              Image.asset(
+                                                                                ImageConfig.starIcon,
+                                                                                height: 20,
+                                                                              ),
+                                                                              Text(
+                                                                                "29,930",
+                                                                                style: TextStyle(color: ColorConfig.white, fontSize: 15),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                          decoration:
+                                                                              BoxDecoration(
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(60),
+                                                                            color:
+                                                                                Colors.black,
+                                                                          ),
+                                                                          height:
+                                                                              35,
+                                                                          width:
+                                                                              90,
+                                                                        ).paddingBottom(
+                                                                            10),
+                                                                        Row(
+                                                                          children: [
+                                                                            Text(
+                                                                              "잭과분홍콩나물",
+                                                                              style: TextStyle(fontWeight: FontWeight.bold, color: ColorConfig.white, fontSize: 28),
+                                                                            ),
+                                                                            Text(
+                                                                              " 25",
+                                                                              style: TextStyle(color: ColorConfig.gray, fontSize: 25),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                        Text(
+                                                                          "서울 · 2km 거리에 있음",
+                                                                          style: TextStyle(
+                                                                              color: ColorConfig.gray,
+                                                                              fontSize: 18),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                    Container()
+                                                                        .expand(),
+                                                                    Image.asset(
+                                                                      ImageConfig
+                                                                          .loveCircle,
+                                                                      height:
+                                                                          50,
+                                                                    ).paddingTop(
+                                                                        50)
+                                                                  ],
+                                                                ).paddingSymmetric(
+                                                                    horizontal:
+                                                                        20),
                                                                 Image.asset(
                                                                   ImageConfig
                                                                       .arrow,
