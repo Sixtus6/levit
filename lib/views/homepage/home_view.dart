@@ -286,6 +286,21 @@ class HomeScreenView extends StatelessWidget {
                       Positioned(
                         top: 10,
                         child: Container(
+                          width: 88,
+                          height: 88,
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: AssetImage(ImageConfig.star)),
+                              borderRadius: BorderRadius.circular(100),
+                              //  color: Colors.amber,
+                              border:
+                                  Border.all(width: 2, color: Colors.black)),
+                        ),
+                      ),
+                      Positioned(
+                        top: 33,
+                        left: 10,
+                        child: Container(
                           width: 75,
                           height: 75,
                           decoration: BoxDecoration(
