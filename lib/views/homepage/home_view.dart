@@ -284,22 +284,25 @@ class HomeScreenView extends StatelessWidget {
                         ),
                       ),
                       Positioned(
-                        top: 10,
+                        top: 1,
                         child: Container(
-                          width: 88,
-                          height: 88,
+                          width: 99,
+                          height: 99,
                           decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  image: AssetImage(ImageConfig.star)),
-                              borderRadius: BorderRadius.circular(100),
-                              //  color: Colors.amber,
-                              border:
-                                  Border.all(width: 2, color: Colors.black)),
+                            image: DecorationImage(
+                                image: AssetImage(ImageConfig.star)),
+                            borderRadius: BorderRadius.circular(100),
+                            //  color: Colors.amber,
+                          ),
                         ),
+                      ),
+                      NavWidget(
+                        label: '홈',
+                        left: 10,
                       ),
                       Positioned(
                         top: 33,
-                        left: 10,
+                        left: 90,
                         child: Container(
                           width: 75,
                           height: 75,
@@ -315,6 +318,46 @@ class HomeScreenView extends StatelessWidget {
                     ],
                   )),
             )));
+  }
+}
+
+class NavWidget extends StatelessWidget {
+  NavWidget({
+    super.key,
+    required this.left,
+    required this.label,
+    this.selected = false,
+  });
+  final double left;
+  final String label;
+  bool selected;
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      top: 33,
+      left: 10,
+      child: Column(
+        children: [
+          Container(
+            width: 48,
+            height: 48,
+            decoration: BoxDecoration(
+                image: const DecorationImage(
+                    image: AssetImage(ImageConfig.homeIcon)),
+                borderRadius: BorderRadius.circular(100),
+                //  color: Colors.amber,
+                border: Border.all(width: 2, color: Colors.black)),
+          ),
+          Text(
+            label,
+            style: TextStyle(
+                color: selected ? ColorConfig.primary : ColorConfig.shade,
+                fontSize: 20),
+          )
+        ],
+      ),
+    );
   }
 }
 

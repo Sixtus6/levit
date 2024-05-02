@@ -9,6 +9,7 @@ class HomeScreenViewModel extends BaseViewModel {
   late PageController pageController;
   bool isDraggedToLeft = false;
   bool isDraggedToBottom = false;
+
   void init() {
     print("initialize");
     imageList = [
