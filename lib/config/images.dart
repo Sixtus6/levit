@@ -8,5 +8,5 @@ class ImageConfig {
   static const String homeIcon = "assets/icon/home.png";
   static const String navIcon = "assets/icon/map.png";
   static const String personIcon = "assets/icon/person.png";
-  static const String startIcon = "assets/icon/star.png";
+  static const String star = "assets/icon/star.png";
 }
