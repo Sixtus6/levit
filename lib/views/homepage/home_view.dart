@@ -80,9 +80,6 @@ class HomeScreenView extends StatelessWidget {
                                                     height: SizeConfigs
                                                         .getPercentageHeight(
                                                             60),
-                                                    child: const Column(
-                                                      children: [],
-                                                    ),
                                                   ),
                                                   childWhenDragging: Stack(
                                                     children: [
@@ -182,6 +179,12 @@ class HomeScreenView extends StatelessWidget {
                                                     ],
                                                   ),
                                                   child: Container(
+                                                    width: double.infinity,
+                                                    child: Column(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment.end,
+                                                      children: [],
+                                                    ),
                                                     decoration: BoxDecoration(
                                                         image: DecorationImage(
                                                           fit: BoxFit.fitHeight,
@@ -267,7 +270,7 @@ class HomeScreenView extends StatelessWidget {
                                   ),
                                   Positioned(
                                     top: 18,
-                                    left: 50,
+                                    left: 51,
                                     child: Row(
                                         children: List.generate(
                                       model.imageList.length,
@@ -432,7 +435,7 @@ class indicatorWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 50,
+      width: 58,
       height: 3.5,
       decoration: BoxDecoration(
           color: currentScreen ? ColorConfig.primary : ColorConfig.scaffold,
