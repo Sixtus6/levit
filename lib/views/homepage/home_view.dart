@@ -180,12 +180,10 @@ class HomeScreenView extends StatelessWidget {
                                                   ),
                                                   child: Container(
                                                     width: double.infinity,
-                                                    child: Column(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment.end,
-                                                      children: [],
-                                                    ),
                                                     decoration: BoxDecoration(
+                                                        border: Border.all(
+                                                            color: ColorConfig
+                                                                .shade),
                                                         image: DecorationImage(
                                                           fit: BoxFit.fitHeight,
                                                           image: AssetImage(
@@ -199,6 +197,55 @@ class HomeScreenView extends StatelessWidget {
                                                     height: SizeConfigs
                                                         .getPercentageHeight(
                                                             100),
+                                                    child: Container(
+                                                      child: Column(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .end,
+                                                        children: [
+                                                          Container(
+                                                            width:
+                                                                double.infinity,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          19),
+                                                              gradient:
+                                                                  const LinearGradient(
+                                                                begin: Alignment
+                                                                    .topCenter,
+                                                                end: Alignment
+                                                                    .bottomCenter,
+                                                                colors: [
+                                                                  Colors
+                                                                      .transparent,
+                                                                  Colors
+                                                                      .black, // Transparent color at the top
+                                                                  // Solid color at the bottom
+                                                                ],
+                                                              ),
+                                                            ),
+                                                            height: 300,
+                                                            child: Column(
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .end,
+                                                              children: [
+                                                                Image.asset(
+                                                                  ImageConfig
+                                                                      .arrow,
+                                                                  height: 9,
+                                                                ).paddingSymmetric(
+                                                                    vertical:
+                                                                        30),
+                                                              ],
+                                                            ),
+                                                          )
+                                                        ],
+                                                      ),
+                                                    ),
                                                   ).paddingSymmetric(
                                                       horizontal: 10),
                                                 ),
@@ -222,7 +269,6 @@ class HomeScreenView extends StatelessWidget {
                                                                 .easeInOut);
                                                     print(
                                                         'Top left corner tapped!');
-                                                    // Add your desired functionality here
                                                   },
                                                   child: Container(
                                                     width: 100,
@@ -308,13 +354,14 @@ class HomeScreenView extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(100),
                                 color: Colors.black,
                                 border: Border.all(
-                                    width: 2, color: ColorConfig.shade)),
+                                    width: 2,
+                                    color: ColorConfig.shade.withOpacity(0.5))),
                           ),
                         ),
                         Container(
                           height: 90,
                           decoration: BoxDecoration(
-                              color: ColorConfig.shade,
+                              color: ColorConfig.shade.withOpacity(0.5),
                               borderRadius: BorderRadius.vertical(
                                   top: Radius.circular(20))),
                           child: Container(
