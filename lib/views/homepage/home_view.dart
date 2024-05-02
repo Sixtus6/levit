@@ -298,8 +298,21 @@ class HomeScreenView extends StatelessWidget {
                       ),
                       NavWidget(
                         label: '홈',
-                        left: 10,
+                        left: 21,
                         selected: true,
+                        image: ImageConfig.homeIcon,
+                      ),
+                      NavWidget(
+                        label: '스팟',
+                        left: 100,
+                        //selected: true,
+                        image: ImageConfig.navIcon,
+                      ),
+                      NavWidget(
+                        label: '채팅',
+                        left: 285,
+                        //selected: true,
+                        image: ImageConfig.navIcon,
                       ),
                     ],
                   )),
@@ -332,8 +345,7 @@ class NavWidget extends StatelessWidget {
             width: 43,
             height: 43,
             decoration: BoxDecoration(
-                image: const DecorationImage(
-                    image: AssetImage(ImageConfig.homeIcon)),
+                image: DecorationImage(image: AssetImage(image)),
                 borderRadius: BorderRadius.circular(100),
                 //  color: Colors.amber,
                 border: Border.all(width: 2, color: Colors.black)),
