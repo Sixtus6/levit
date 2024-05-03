@@ -16,4 +16,5 @@ class ImageConfig {
   static const String wine = "assets/icon/wine.png";
   static const String loveCircle = "assets/icon/love.png";
   static const String arrow = "assets/icon/dropdown.png";
+  static const String ciga = "assets/icon/ciga.png";
 }

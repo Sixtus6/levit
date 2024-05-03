@@ -227,7 +227,7 @@ class HomeScreenView extends StatelessWidget {
                                                                 ],
                                                               ),
                                                             ),
-                                                            height: 400,
+                                                            height: 355,
                                                             child: Column(
                                                               mainAxisAlignment:
                                                                   MainAxisAlignment
@@ -446,80 +446,6 @@ class HomeScreenView extends StatelessWidget {
   }
 }
 
-class card2 extends StatelessWidget {
-  const card2({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(60),
-                color: Colors.black,
-              ),
-              height: 35,
-              width: 90,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Image.asset(
-                    ImageConfig.starIcon,
-                    height: 20,
-                  ),
-                  Text(
-                    "29,930",
-                    style: TextStyle(color: ColorConfig.white, fontSize: 15),
-                  ),
-                ],
-              ),
-            ).paddingBottom(10),
-            Row(
-              children: [
-                Text(
-                  "잭과분홍콩나물",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: ColorConfig.white,
-                      fontSize: 28),
-                ),
-                Text(
-                  " 25",
-                  style: TextStyle(color: ColorConfig.gray, fontSize: 25),
-                ),
-              ],
-            ),
-            Text(
-              "서로 아껴주고 힘이 되어줄 사람 찾아요",
-              style: TextStyle(color: ColorConfig.gray, fontSize: 15),
-            ),
-            5.height,
-            Text(
-              "선릉으로 직장 다니고 있고 여행 좋아해요",
-              style: TextStyle(color: ColorConfig.gray, fontSize: 15),
-            ),
-            5.height,
-            Text(
-              "이상한 이야기하시는 분 바로 차단입니다",
-              style: TextStyle(color: ColorConfig.gray, fontSize: 15),
-            ),
-          ],
-        ),
-        Container().expand(),
-        Image.asset(
-          ImageConfig.loveCircle,
-          height: 50,
-        ).paddingTop(50)
-      ],
-    );
-  }
-}
-
 class card3 extends StatelessWidget {
   const card3({
     super.key,
@@ -592,20 +518,40 @@ class card3 extends StatelessWidget {
                   ),
                 ],
               ),
-            ).paddingBottom(10),
+            ).paddingBottom(7),
+            Row(
+              children: [
+                const itemWidget(
+                  img: ImageConfig.wine,
+                  width: 100,
+                  text: '전혀 안 함',
+                ).paddingBottom(4.5),
+                7.width,
+                itemWidget(
+                  img: ImageConfig.ciga,
+                  width: 80,
+                  text: '비흡연',
+                ).paddingBottom(4.5),
+              ],
+            ),
+            itemWidget(
+              img: ImageConfig.muscle,
+              width: 140,
+              text: '매일 1시간 이상',
+            ).paddingBottom(4.5),
             Row(
               children: [
                 itemWidget(
-                  img: ImageConfig.wine,
-                  width: 100,
-                  text: '전혀 안 함',
-                ).paddingBottom(10),
+                  img: ImageConfig.handIcon,
+                  text: '만나는 걸 좋아함',
+                  width: 140,
+                ).paddingBottom(4.5),
                 7.width,
                 itemWidget(
-                  img: ImageConfig.wine,
-                  width: 100,
-                  text: '전혀 안 함',
-                ).paddingBottom(10),
+                  img: '',
+                  width: 60,
+                  text: 'INFB',
+                ).paddingBottom(4.5),
               ],
             ),
           ],
@@ -614,7 +560,7 @@ class card3 extends StatelessWidget {
         Image.asset(
           ImageConfig.loveCircle,
           height: 50,
-        ).paddingTop(50)
+        ).paddingTop(200)
       ],
     );
   }
@@ -641,19 +587,29 @@ class itemWidget extends StatelessWidget {
       width: width,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Image.asset(
-            img,
-            height: 18,
-          ),
-          Text(
-            text,
-            style: TextStyle(
-              color: Color(0xffF5F5F5),
-              fontSize: 14,
-            ),
-          ),
-        ],
+        children: img == ''
+            ? [
+                Text(
+                  text,
+                  style: TextStyle(
+                    color: Color(0xffF5F5F5),
+                    fontSize: 14,
+                  ),
+                ),
+              ]
+            : [
+                Image.asset(
+                  img,
+                  height: 18,
+                ),
+                Text(
+                  text,
+                  style: TextStyle(
+                    color: Color(0xffF5F5F5),
+                    fontSize: 14,
+                  ),
+                ),
+              ],
       ),
     );
   }
