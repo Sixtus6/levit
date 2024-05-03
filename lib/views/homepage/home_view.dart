@@ -4,6 +4,8 @@ import 'package:luvit/config/color.dart';
 import 'package:luvit/config/images.dart';
 import 'package:luvit/config/size.dart';
 import 'package:luvit/views/homepage/home_viewmodel.dart';
+import 'package:luvit/widget/cards_text.dart';
+import 'package:luvit/widget/navigation_items.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:stacked/stacked.dart';
 
@@ -443,23 +445,5 @@ class HomeScreenView extends StatelessWidget {
                     )),
               ),
             )));
-  }
-}
-
-class indicatorWidget extends StatelessWidget {
-  const indicatorWidget({
-    super.key,
-    required this.currentScreen,
-  });
-  final bool currentScreen;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 58,
-      height: 3.5,
-      decoration: BoxDecoration(
-          color: currentScreen ? ColorConfig.primary : ColorConfig.scaffold,
-          borderRadius: BorderRadius.circular(20)),
-    );
   }
 }
