@@ -5,6 +5,7 @@ import 'package:luvit/config/images.dart';
 import 'package:luvit/config/size.dart';
 import 'package:luvit/views/homepage/home_viewmodel.dart';
 import 'package:luvit/widget/cards_text.dart';
+import 'package:luvit/widget/indicator_widget.dart';
 import 'package:luvit/widget/navigation_items.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:stacked/stacked.dart';
@@ -41,7 +42,22 @@ class HomeScreenView extends StatelessWidget {
                           )
                         : Column(
                             children: [
-                              50.height,
+                              Row(
+                                children: [
+                                  Image.asset(
+                                    ImageConfig.map2,
+                                    height: 35,
+                                  ),
+                                  Text(
+                                    "매일 새로운 친구들을 소개시켜드려요",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.bold),
+                                  )
+                                ],
+                              ),
+                              25.height,
                               Stack(
                                 children: [
                                   SizedBox(
