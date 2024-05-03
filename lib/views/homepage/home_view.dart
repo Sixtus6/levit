@@ -54,7 +54,38 @@ class HomeScreenView extends StatelessWidget {
                                         color: Colors.white,
                                         fontSize: 14,
                                         fontWeight: FontWeight.bold),
-                                  )
+                                  ),
+                                  Container().expand(),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      border:
+                                          Border.all(color: ColorConfig.shade),
+                                      color: Colors.black,
+
+                                      borderRadius: BorderRadius.circular(40),
+                                      // color: Colors.black,
+                                    ),
+                                    height: 25,
+                                    width: 100,
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        Image.asset(
+                                          ImageConfig.starIcon,
+                                          color: ColorConfig.primary,
+                                          height: 18,
+                                        ),
+                                        Text(
+                                          "323,333",
+                                          style: TextStyle(
+                                            color: Color(0xffF5F5F5),
+                                            fontSize: 14,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
                                 ],
                               ),
                               25.height,
