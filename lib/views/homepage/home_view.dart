@@ -86,9 +86,13 @@ class HomeScreenView extends StatelessWidget {
                                       ],
                                     ),
                                   ),
+                                  Image.asset(
+                                    ImageConfig.bell,
+                                    height: 38,
+                                  ),
                                 ],
                               ),
-                              25.height,
+                              15.height,
                               Stack(
                                 children: [
                                   SizedBox(

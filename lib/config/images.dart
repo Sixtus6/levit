@@ -18,4 +18,5 @@ class ImageConfig {
   static const String arrow = "assets/icon/dropdown.png";
   static const String ciga = "assets/icon/ciga.png";
   static const String map2 = "assets/icon/map2.png";
+  static const String bell = "assets/icon/bell.png";
 }
