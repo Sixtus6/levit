@@ -6,6 +6,7 @@ import 'package:luvit/config/size.dart';
 import 'package:luvit/views/homepage/home_viewmodel.dart';
 import 'package:luvit/widget/cards_text.dart';
 import 'package:luvit/widget/indicator_widget.dart';
+import 'package:luvit/widget/navBar.dart';
 import 'package:luvit/widget/navigation_items.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:stacked/stacked.dart';
@@ -42,57 +43,9 @@ class HomeScreenView extends StatelessWidget {
                           )
                         : Column(
                             children: [
-                              15.height,
-                              Row(
-                                children: [
-                                  Image.asset(
-                                    ImageConfig.map2,
-                                    height: 35,
-                                  ),
-                                  Text(
-                                    "매일 새로운 친구들을 소개시켜드려요",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  Container().expand(),
-                                  Container(
-                                    decoration: BoxDecoration(
-                                      border:
-                                          Border.all(color: ColorConfig.shade),
-                                      color: Colors.black,
-
-                                      borderRadius: BorderRadius.circular(40),
-                                      // color: Colors.black,
-                                    ),
-                                    height: 25,
-                                    width: 100,
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        Image.asset(
-                                          ImageConfig.starIcon,
-                                          color: ColorConfig.primary,
-                                          height: 18,
-                                        ),
-                                        Text(
-                                          "323,333",
-                                          style: TextStyle(
-                                            color: Color(0xffF5F5F5),
-                                            fontSize: 14,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Image.asset(
-                                    ImageConfig.bell,
-                                    height: 42,
-                                  ),
-                                ],
-                              ).paddingBottom(25),
+                              20.height,
+                              //APPBAR
+                              customAppbar().paddingBottom(29),
                               Stack(
                                 children: [
                                   SizedBox(
@@ -120,6 +73,9 @@ class HomeScreenView extends StatelessWidget {
                                                     width: SizeConfigs
                                                         .getPercentageWidth(75),
                                                     decoration: BoxDecoration(
+                                                        border: Border.all(
+                                                            color: ColorConfig
+                                                                .shade),
                                                         image: DecorationImage(
                                                           fit: BoxFit.fitHeight,
                                                           image: AssetImage(
@@ -133,6 +89,45 @@ class HomeScreenView extends StatelessWidget {
                                                     height: SizeConfigs
                                                         .getPercentageHeight(
                                                             60),
+                                                    child: Container(
+                                                      child: Column(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .end,
+                                                        children: [
+                                                          Container(
+                                                            width:
+                                                                double.infinity,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          19),
+                                                              gradient:
+                                                                  const LinearGradient(
+                                                                begin: Alignment
+                                                                    .topCenter,
+                                                                end: Alignment
+                                                                    .bottomCenter,
+                                                                colors: [
+                                                                  Color
+                                                                      .fromARGB(
+                                                                          0,
+                                                                          110,
+                                                                          109,
+                                                                          109),
+                                                                  Colors
+                                                                      .black, // Transparent color at the top
+                                                                  // Solid color at the bottom
+                                                                ],
+                                                              ),
+                                                            ),
+                                                            height: 310,
+                                                          )
+                                                        ],
+                                                      ),
+                                                    ),
                                                   ),
                                                   childWhenDragging: Stack(
                                                     children: [
@@ -280,7 +275,7 @@ class HomeScreenView extends StatelessWidget {
                                                                 ],
                                                               ),
                                                             ),
-                                                            height: 355,
+                                                            height: 310,
                                                             child: Column(
                                                               mainAxisAlignment:
                                                                   MainAxisAlignment
@@ -406,93 +401,64 @@ class HomeScreenView extends StatelessWidget {
                               )
                             ],
                           ),
-                    bottomNavigationBar: Stack(
-                      alignment: Alignment.bottomCenter,
-                      children: [
-                        Container(
-                          height: 110,
-                        ),
-                        Positioned(
-                          top: 0,
-                          child: Container(
-                            width: 110,
-                            height: 110,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(100),
-                                color: Colors.black,
-                                border: Border.all(
-                                    width: 2,
-                                    color: ColorConfig.shade.withOpacity(0.5))),
-                          ),
-                        ),
-                        Container(
-                          height: 90,
-                          decoration: BoxDecoration(
-                              color: ColorConfig.shade.withOpacity(0.5),
-                              borderRadius: BorderRadius.vertical(
-                                  top: Radius.circular(20))),
-                          child: Container(
-                            width: double.infinity,
-                            height: 78,
-                            margin: EdgeInsets.only(top: 3),
-                            decoration: const BoxDecoration(
-                                color: Colors.black,
-                                borderRadius: BorderRadius.vertical(
-                                    top: Radius.circular(20))),
-                          ),
-                        ),
-                        Positioned(
-                          top: 10,
-                          child: Container(
-                            width: 160,
-                            height: 160,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(100),
-                                color: Colors.black,
-                                border:
-                                    Border.all(width: 2, color: Colors.black)),
-                          ),
-                        ),
-                        Positioned(
-                          top: 1,
-                          child: Container(
-                            width: 99,
-                            height: 99,
-                            decoration: BoxDecoration(
-                              image: const DecorationImage(
-                                  image: AssetImage(ImageConfig.star)),
-                              borderRadius: BorderRadius.circular(100),
-                              //  color: Colors.amber,
-                            ),
-                          ),
-                        ),
-                        NavWidget(
-                          label: '홈',
-                          left: 21,
-                          selected: true,
-                          image: ImageConfig.homeIcon,
-                        ),
-                        NavWidget(
-                          label: '스팟',
-                          left: 100,
-                          //selected: true,
-                          image: ImageConfig.navIcon,
-                        ),
-                        NavWidget(
-                          label: '채팅',
-                          left: 286,
-                          //selected: true,
-                          image: ImageConfig.chatIcon,
-                        ),
-                        NavWidget(
-                          label: '마이',
-                          left: 365,
-                          //selected: true,
-                          image: ImageConfig.personIcon,
-                        ),
-                      ],
-                    )),
+                    bottomNavigationBar: customNavBar()),
               ),
             )));
+  }
+}
+
+class customAppbar extends StatelessWidget {
+  const customAppbar({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Image.asset(
+          ImageConfig.map2,
+          height: 35,
+        ),
+        const Text(
+          "매일 새로운 친구들을 소개시켜드려요",
+          style: TextStyle(
+              color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold),
+        ),
+        Container().expand(),
+        Container(
+          decoration: BoxDecoration(
+            border: Border.all(color: ColorConfig.shade),
+            color: Colors.black,
+
+            borderRadius: BorderRadius.circular(100),
+            // color: Colors.black,
+          ),
+          height: 35,
+          width: 100,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Image.asset(
+                ImageConfig.starIcon,
+                color: ColorConfig.primary,
+                height: 18,
+              ),
+              Text(
+                "323,333",
+                style: TextStyle(
+                  color: Color(0xffF5F5F5),
+                  fontSize: 14,
+                ),
+              ),
+            ],
+          ),
+        ),
+        Image.asset(
+          ImageConfig.bell,
+          height: 42,
+        ),
+      ],
+    );
   }
 }

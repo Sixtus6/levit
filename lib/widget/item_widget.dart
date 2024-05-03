@@ -14,10 +14,10 @@ class itemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(100),
+        borderRadius: BorderRadius.circular(120),
         color: Colors.black,
       ),
-      height: 30,
+      height: 35,
       width: width,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,

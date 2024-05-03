@@ -37,7 +37,7 @@ class card2 extends StatelessWidget {
                   ),
                 ],
               ),
-            ).paddingBottom(1),
+            ).paddingBottom(7),
             Row(
               children: [
                 Text(
@@ -46,26 +46,26 @@ class card2 extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                       color: ColorConfig.white,
                       fontSize: 25),
-                ),
+                ).paddingBottom(5),
                 Text(
                   " 25",
-                  style: TextStyle(color: ColorConfig.gray, fontSize: 20),
+                  style: TextStyle(color: ColorConfig.whitelight, fontSize: 20),
                 ),
               ],
             ),
             Text(
               "서로 아껴주고 힘이 되어줄 사람 찾아요",
-              style: TextStyle(color: ColorConfig.gray, fontSize: 13),
+              style: TextStyle(color: ColorConfig.gray, fontSize: 14),
             ),
             5.height,
             Text(
               "선릉으로 직장 다니고 있고 여행 좋아해요",
-              style: TextStyle(color: ColorConfig.gray, fontSize: 13),
+              style: TextStyle(color: ColorConfig.gray, fontSize: 14),
             ),
             5.height,
             Text(
               "이상한 이야기하시는 분 바로 차단입니다",
-              style: TextStyle(color: ColorConfig.gray, fontSize: 13),
+              style: TextStyle(color: ColorConfig.gray, fontSize: 14),
             ),
           ],
         ),
@@ -123,18 +123,18 @@ class card3 extends StatelessWidget {
                 ),
                 Text(
                   " 25",
-                  style: TextStyle(color: ColorConfig.gray, fontSize: 20),
+                  style: TextStyle(color: ColorConfig.whitelight, fontSize: 20),
                 ),
               ],
-            ),
+            ).paddingBottom(4.5).paddingTop(4.5),
             Container(
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(100),
+                borderRadius: BorderRadius.circular(200),
                 border: Border.all(color: Color(0xffFF006B)),
                 color: Color(0xff621133).withOpacity(0.6),
               ),
-              height: 39,
-              width: 170,
+              height: 50,
+              width: 150,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -146,7 +146,7 @@ class card3 extends StatelessWidget {
                     "진지한 연애를 찾는 중",
                     style: TextStyle(
                         color: Color(0xffFF006B),
-                        fontSize: 13,
+                        fontSize: 14,
                         fontWeight: FontWeight.bold),
                   ),
                 ],
@@ -156,31 +156,31 @@ class card3 extends StatelessWidget {
               children: [
                 const itemWidget(
                   img: ImageConfig.wine,
-                  width: 100,
+                  width: 84,
                   text: '전혀 안 함',
                 ).paddingBottom(4.5),
                 7.width,
-                itemWidget(
+                const itemWidget(
                   img: ImageConfig.ciga,
                   width: 80,
                   text: '비흡연',
                 ).paddingBottom(4.5),
               ],
             ),
-            itemWidget(
+            const itemWidget(
               img: ImageConfig.muscle,
-              width: 140,
+              width: 120,
               text: '매일 1시간 이상',
             ).paddingBottom(4.5),
             Row(
               children: [
-                itemWidget(
+                const itemWidget(
                   img: ImageConfig.handIcon,
                   text: '만나는 걸 좋아함',
-                  width: 140,
+                  width: 120,
                 ).paddingBottom(4.5),
                 7.width,
-                itemWidget(
+                const itemWidget(
                   img: '',
                   width: 60,
                   text: 'INFB',
@@ -193,7 +193,7 @@ class card3 extends StatelessWidget {
         Image.asset(
           ImageConfig.loveCircle,
           height: 50,
-        ).paddingTop(200)
+        ).paddingTop(110)
       ],
     );
   }
@@ -231,7 +231,7 @@ class card1 extends StatelessWidget {
                   ),
                 ],
               ),
-            ).paddingBottom(10),
+            ).paddingBottom(7),
             Row(
               children: [
                 Text(
@@ -243,13 +243,13 @@ class card1 extends StatelessWidget {
                 ),
                 Text(
                   " 25",
-                  style: TextStyle(color: ColorConfig.gray, fontSize: 20),
+                  style: TextStyle(color: ColorConfig.whitelight, fontSize: 20),
                 ),
               ],
-            ),
+            ).paddingBottom(7),
             Text(
               "서울 · 2km 거리에 있음",
-              style: TextStyle(color: ColorConfig.gray, fontSize: 15),
+              style: TextStyle(color: ColorConfig.gray, fontSize: 16),
             ),
           ],
         ),

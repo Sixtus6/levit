@@ -7,4 +7,5 @@ class ColorConfig {
   static Color white = const Color(0xffffffff);
   static Color shade = const Color(0xff595959);
   static Color gray = const Color(0xffD9D9D9);
+  static Color whitelight = const Color(0xffFCFCFC);
 }
