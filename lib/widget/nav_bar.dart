@@ -3,8 +3,8 @@ import 'package:luvit/config/color.dart';
 import 'package:luvit/config/images.dart';
 import 'package:luvit/widget/navigation_items.dart';
 
-class customNavBar extends StatelessWidget {
-  const customNavBar({
+class CustomNavBar extends StatelessWidget {
+  const CustomNavBar({
     super.key,
   });
 
@@ -32,11 +32,12 @@ class customNavBar extends StatelessWidget {
           height: 90,
           decoration: BoxDecoration(
               color: ColorConfig.shade.withOpacity(0.5),
-              borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
+              borderRadius:
+                  const BorderRadius.vertical(top: Radius.circular(20))),
           child: Container(
             width: double.infinity,
             height: 78,
-            margin: EdgeInsets.only(top: 3),
+            margin: const EdgeInsets.only(top: 3),
             decoration: const BoxDecoration(
                 color: Colors.black,
                 borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
@@ -65,25 +66,25 @@ class customNavBar extends StatelessWidget {
             ),
           ),
         ),
-        NavWidget(
+        Navidget(
           label: '홈',
           left: 21,
           selected: true,
           image: ImageConfig.homeIcon,
         ),
-        NavWidget(
+        Navidget(
           label: '스팟',
           left: 100,
           //selected: true,
           image: ImageConfig.navIcon,
         ),
-        NavWidget(
+        Navidget(
           label: '채팅',
           left: 286,
           //selected: true,
           image: ImageConfig.chatIcon,
         ),
-        NavWidget(
+        Navidget(
           label: '마이',
           left: 365,
           //selected: true,

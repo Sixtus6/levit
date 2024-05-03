@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:luvit/config/color.dart';
 import 'package:luvit/config/size.dart';
 
-class indicatorWidget extends StatelessWidget {
-  const indicatorWidget({
+class IndicatorWidget extends StatelessWidget {
+  const IndicatorWidget({
     super.key,
     required this.currentScreen,
   });

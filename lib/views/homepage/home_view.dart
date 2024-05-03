@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+
 import 'package:luvit/config/color.dart';
 import 'package:luvit/config/images.dart';
 import 'package:luvit/config/size.dart';
 import 'package:luvit/views/homepage/home_viewmodel.dart';
 import 'package:luvit/widget/cards_text.dart';
+import 'package:luvit/widget/custom_appbar.dart';
 import 'package:luvit/widget/indicator_widget.dart';
 import 'package:luvit/widget/navBar.dart';
-import 'package:luvit/widget/navigation_items.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:stacked/stacked.dart';
 
@@ -25,8 +25,11 @@ class HomeScreenView extends StatelessWidget {
                     backgroundColor: ColorConfig.scaffold,
                     body: model.imageList.isEmpty
                         ? Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
+                              20.height,
+                              //APPBAR
+                              const CustomAppbar().paddingBottom(
+                                  SizeConfigs.getPercentageHeight(30)),
                               const Text(
                                 "추천 드릴 친구들을 준비 중이에요",
                                 style: TextStyle(
@@ -38,17 +41,18 @@ class HomeScreenView extends StatelessWidget {
                                 "매일 새로운 친구들을 소개시켜드려요",
                                 style: TextStyle(
                                     color: Colors.white, fontSize: 18),
-                              ).center()
+                              ).center(),
                             ],
                           )
                         : Column(
                             children: [
                               20.height,
                               //APPBAR
-                              customAppbar().paddingBottom(29),
+                              const CustomAppbar().paddingBottom(29),
                               Stack(
                                 children: [
                                   SizedBox(
+                                    width: double.infinity,
                                     height: SizeConfigs.getPercentageHeight(70),
                                     child: PageView.builder(
                                       physics:
@@ -89,44 +93,40 @@ class HomeScreenView extends StatelessWidget {
                                                     height: SizeConfigs
                                                         .getPercentageHeight(
                                                             60),
-                                                    child: Container(
-                                                      child: Column(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .end,
-                                                        children: [
-                                                          Container(
-                                                            width:
-                                                                double.infinity,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          19),
-                                                              gradient:
-                                                                  const LinearGradient(
-                                                                begin: Alignment
-                                                                    .topCenter,
-                                                                end: Alignment
-                                                                    .bottomCenter,
-                                                                colors: [
-                                                                  Color
-                                                                      .fromARGB(
-                                                                          0,
-                                                                          110,
-                                                                          109,
-                                                                          109),
-                                                                  Colors
-                                                                      .black, // Transparent color at the top
-                                                                  // Solid color at the bottom
-                                                                ],
-                                                              ),
+                                                    child: Column(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment.end,
+                                                      children: [
+                                                        Container(
+                                                          width:
+                                                              double.infinity,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        19),
+                                                            gradient:
+                                                                const LinearGradient(
+                                                              begin: Alignment
+                                                                  .topCenter,
+                                                              end: Alignment
+                                                                  .bottomCenter,
+                                                              colors: [
+                                                                Color.fromARGB(
+                                                                    0,
+                                                                    110,
+                                                                    109,
+                                                                    109),
+                                                                Colors
+                                                                    .black, // Transparent color at the top
+                                                                // Solid color at the bottom
+                                                              ],
                                                             ),
-                                                            height: 310,
-                                                          )
-                                                        ],
-                                                      ),
+                                                          ),
+                                                          height: 310,
+                                                        )
+                                                      ],
                                                     ),
                                                   ),
                                                   childWhenDragging: Stack(
@@ -217,8 +217,6 @@ class HomeScreenView extends StatelessWidget {
                                                             model.deleteImage(
                                                                 int.parse(data
                                                                     .toString()));
-                                                            print(
-                                                                "leave1 ${data}");
                                                           },
                                                           // onAccept: (int data) =>
                                                           //     model.deleteImage(data)
@@ -245,70 +243,67 @@ class HomeScreenView extends StatelessWidget {
                                                     height: SizeConfigs
                                                         .getPercentageHeight(
                                                             100),
-                                                    child: Container(
-                                                      child: Column(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .end,
-                                                        children: [
-                                                          Container(
-                                                            width:
-                                                                double.infinity,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          19),
-                                                              gradient:
-                                                                  const LinearGradient(
-                                                                begin: Alignment
-                                                                    .topCenter,
-                                                                end: Alignment
-                                                                    .bottomCenter,
-                                                                colors: [
-                                                                  Colors
-                                                                      .transparent,
-                                                                  Colors
-                                                                      .black, // Transparent color at the top
-                                                                  // Solid color at the bottom
-                                                                ],
-                                                              ),
-                                                            ),
-                                                            height: 310,
-                                                            child: Column(
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .end,
-                                                              children: [
-                                                                model.imageList[
-                                                                            index] ==
-                                                                        ImageConfig
-                                                                            .image1
-                                                                    ? card1().paddingSymmetric(
-                                                                        horizontal:
-                                                                            20)
-                                                                    : model.imageList[index] ==
-                                                                            ImageConfig
-                                                                                .image2
-                                                                        ? card2().paddingSymmetric(
-                                                                            horizontal:
-                                                                                20)
-                                                                        : card3().paddingSymmetric(
-                                                                            horizontal:
-                                                                                20),
-                                                                Image.asset(
-                                                                  ImageConfig
-                                                                      .arrow,
-                                                                  height: 9,
-                                                                ).paddingSymmetric(
-                                                                    vertical:
-                                                                        30),
+                                                    child: Column(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment.end,
+                                                      children: [
+                                                        Container(
+                                                          width:
+                                                              double.infinity,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        19),
+                                                            gradient:
+                                                                const LinearGradient(
+                                                              begin: Alignment
+                                                                  .topCenter,
+                                                              end: Alignment
+                                                                  .bottomCenter,
+                                                              colors: [
+                                                                Colors
+                                                                    .transparent,
+                                                                Colors
+                                                                    .black, // Transparent color at the top
+                                                                // Solid color at the bottom
                                                               ],
                                                             ),
-                                                          )
-                                                        ],
-                                                      ),
+                                                          ),
+                                                          height: 310,
+                                                          child: Column(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .end,
+                                                            children: [
+                                                              model.imageList[index] ==
+                                                                      ImageConfig
+                                                                          .image1
+                                                                  ? const Card1()
+                                                                      .paddingSymmetric(
+                                                                          horizontal:
+                                                                              20)
+                                                                  : model.imageList[
+                                                                              index] ==
+                                                                          ImageConfig
+                                                                              .image2
+                                                                      ? const Card2().paddingSymmetric(
+                                                                          horizontal:
+                                                                              20)
+                                                                      : const Card3().paddingSymmetric(
+                                                                          horizontal:
+                                                                              20),
+                                                              Image.asset(
+                                                                ImageConfig
+                                                                    .arrow,
+                                                                height: 9,
+                                                              ).paddingSymmetric(
+                                                                  vertical: 30),
+                                                            ],
+                                                          ),
+                                                        )
+                                                      ],
                                                     ),
                                                   ).paddingSymmetric(
                                                       horizontal: 10),
@@ -331,8 +326,6 @@ class HomeScreenView extends StatelessWidget {
                                                                     seconds: 1),
                                                             curve: Curves
                                                                 .easeInOut);
-                                                    print(
-                                                        'Top left corner tapped!');
                                                   },
                                                   child: Container(
                                                     width: 100,
@@ -358,9 +351,6 @@ class HomeScreenView extends StatelessWidget {
                                                                     seconds: 1),
                                                             curve: Curves
                                                                 .easeInOut);
-
-                                                    print(
-                                                        'Top right corner tapped!');
                                                   },
                                                   child: Container(
                                                     width: 100,
@@ -383,14 +373,7 @@ class HomeScreenView extends StatelessWidget {
                                         children: List.generate(
                                       model.imageList.length,
                                       (index) {
-                                        print("------------------");
-                                        print([
-                                          index,
-                                          model.currentPage,
-                                          model.imageList
-                                              .indexOf(model.imageList[index])
-                                        ]);
-                                        return indicatorWidget(
+                                        return IndicatorWidget(
                                           currentScreen:
                                               index == model.currentPage,
                                         ).paddingSymmetric(horizontal: 4);
@@ -401,7 +384,7 @@ class HomeScreenView extends StatelessWidget {
                               )
                             ],
                           ),
-                    bottomNavigationBar: const customNavBar()),
+                    bottomNavigationBar: const CustomNavBar()),
               ),
             )));
   }

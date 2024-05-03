@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:luvit/config/color.dart';
 import 'package:nb_utils/nb_utils.dart';
 
+// ignore: must_be_immutable
 class NavWidget extends StatelessWidget {
   NavWidget({
     super.key,

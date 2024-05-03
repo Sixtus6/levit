@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:luvit/config/color.dart';
 import 'package:luvit/config/images.dart';
-import 'package:luvit/views/homepage/home_view.dart';
 import 'package:luvit/widget/item_widget.dart';
 import 'package:nb_utils/nb_utils.dart';
 
-class card2 extends StatelessWidget {
-  const card2({
+class Card2 extends StatelessWidget {
+  const Card2({
     super.key,
   });
 
@@ -79,8 +78,8 @@ class card2 extends StatelessWidget {
   }
 }
 
-class card3 extends StatelessWidget {
-  const card3({
+class Card3 extends StatelessWidget {
+  const Card3({
     super.key,
   });
 
@@ -130,8 +129,8 @@ class card3 extends StatelessWidget {
             Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(200),
-                border: Border.all(color: Color(0xffFF006B)),
-                color: Color(0xff621133).withOpacity(0.6),
+                border: Border.all(color: const Color(0xffFF006B)),
+                color: const Color(0xff621133).withOpacity(0.6),
               ),
               height: 50,
               width: 150,
@@ -154,33 +153,33 @@ class card3 extends StatelessWidget {
             ).paddingBottom(7),
             Row(
               children: [
-                const itemWidget(
+                const ItemWidget(
                   img: ImageConfig.wine,
                   width: 84,
                   text: '전혀 안 함',
                 ).paddingBottom(4.5),
                 7.width,
-                const itemWidget(
+                const ItemWidget(
                   img: ImageConfig.ciga,
                   width: 80,
                   text: '비흡연',
                 ).paddingBottom(4.5),
               ],
             ),
-            const itemWidget(
+            const ItemWidget(
               img: ImageConfig.muscle,
               width: 120,
               text: '매일 1시간 이상',
             ).paddingBottom(4.5),
             Row(
               children: [
-                const itemWidget(
+                const ItemWidget(
                   img: ImageConfig.handIcon,
                   text: '만나는 걸 좋아함',
                   width: 120,
                 ).paddingBottom(4.5),
                 7.width,
-                const itemWidget(
+                const ItemWidget(
                   img: '',
                   width: 60,
                   text: 'INFB',
@@ -199,8 +198,8 @@ class card3 extends StatelessWidget {
   }
 }
 
-class card1 extends StatelessWidget {
-  const card1({
+class Card1 extends StatelessWidget {
+  const Card1({
     super.key,
   });
 

@@ -3,8 +3,8 @@ import 'package:luvit/config/color.dart';
 import 'package:luvit/config/images.dart';
 import 'package:nb_utils/nb_utils.dart';
 
-class customAppbar extends StatelessWidget {
-  const customAppbar({
+class CustomAppbar extends StatelessWidget {
+  const CustomAppbar({
     super.key,
   });
 
@@ -40,7 +40,7 @@ class customAppbar extends StatelessWidget {
                 color: ColorConfig.primary,
                 height: 18,
               ),
-              Text(
+              const Text(
                 "323,333",
                 style: TextStyle(
                   color: Color(0xffF5F5F5),

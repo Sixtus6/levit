@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class itemWidget extends StatelessWidget {
-  const itemWidget({
+class ItemWidget extends StatelessWidget {
+  const ItemWidget({
     super.key,
     required this.width,
     required this.img,
@@ -25,7 +25,7 @@ class itemWidget extends StatelessWidget {
             ? [
                 Text(
                   text,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Color(0xffF5F5F5),
                     fontSize: 13,
                   ),
@@ -38,7 +38,7 @@ class itemWidget extends StatelessWidget {
                 ),
                 Text(
                   text,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Color(0xffF5F5F5),
                     fontSize: 13,
                   ),

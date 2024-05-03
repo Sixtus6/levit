@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:luvit/config/images.dart';
-import 'package:nb_utils/nb_utils.dart';
 import 'package:stacked/stacked.dart';
 
 class HomeScreenViewModel extends BaseViewModel {
@@ -11,7 +10,7 @@ class HomeScreenViewModel extends BaseViewModel {
   bool isDraggedToBottom = false;
 
   void init() {
-    print("initialize");
+    // print("initialize");
     imageList = [
       ImageConfig.image1,
       ImageConfig.image2,
@@ -25,12 +24,12 @@ class HomeScreenViewModel extends BaseViewModel {
   }
 
   deleteImage(int indez) {
-    print("removed Elememnt ${indez}");
-    print(imageList.length);
-    print([imageList[indez]]);
+    // print("removed Elememnt ${indez}");
+    // print(imageList.length);
+    // print([imageList[indez]]);
 
-    print(imageList);
-    print('currentPage; ${currentPage}');
+    // print(imageList);
+    // print('currentPage; ${currentPage}');
 
     imageList.remove(imageList[indez]);
     currentPage =
@@ -50,7 +49,7 @@ class HomeScreenViewModel extends BaseViewModel {
   int currentPage = 0;
   void setPageState(int value) {
     currentPage = value;
-    print(currentPage);
+    // print(currentPage);
     notifyListeners();
   }
 }
