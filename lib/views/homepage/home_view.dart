@@ -42,6 +42,7 @@ class HomeScreenView extends StatelessWidget {
                           )
                         : Column(
                             children: [
+                              15.height,
                               Row(
                                 children: [
                                   Image.asset(
@@ -88,11 +89,10 @@ class HomeScreenView extends StatelessWidget {
                                   ),
                                   Image.asset(
                                     ImageConfig.bell,
-                                    height: 38,
+                                    height: 42,
                                   ),
                                 ],
-                              ),
-                              15.height,
+                              ).paddingBottom(25),
                               Stack(
                                 children: [
                                   SizedBox(
@@ -364,10 +364,8 @@ class HomeScreenView extends StatelessWidget {
                                                             curve: Curves
                                                                 .easeInOut);
 
-                                                    // Add your desired functionality here
                                                     print(
                                                         'Top right corner tapped!');
-                                                    // Add your desired functionality here
                                                   },
                                                   child: Container(
                                                     width: 100,
@@ -385,7 +383,7 @@ class HomeScreenView extends StatelessWidget {
                                   ),
                                   Positioned(
                                     top: 18,
-                                    left: 51,
+                                    left: 40,
                                     child: Row(
                                         children: List.generate(
                                       model.imageList.length,
@@ -461,7 +459,7 @@ class HomeScreenView extends StatelessWidget {
                             width: 99,
                             height: 99,
                             decoration: BoxDecoration(
-                              image: DecorationImage(
+                              image: const DecorationImage(
                                   image: AssetImage(ImageConfig.star)),
                               borderRadius: BorderRadius.circular(100),
                               //  color: Colors.amber,

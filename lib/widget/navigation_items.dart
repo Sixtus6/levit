@@ -24,8 +24,8 @@ class NavWidget extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            width: 43,
-            height: 43,
+            width: 30,
+            height: 30,
             decoration: BoxDecoration(
               image: DecorationImage(image: AssetImage(image)),
               // borderRadius: BorderRadius.circular(100),
@@ -37,7 +37,7 @@ class NavWidget extends StatelessWidget {
             label,
             style: TextStyle(
                 color: selected ? ColorConfig.primary : ColorConfig.shade,
-                fontSize: 20),
+                fontSize: 17),
           )
         ],
       ),

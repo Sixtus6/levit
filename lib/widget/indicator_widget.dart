@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:luvit/config/color.dart';
+import 'package:luvit/config/size.dart';
 
 class indicatorWidget extends StatelessWidget {
   const indicatorWidget({
@@ -10,7 +11,7 @@ class indicatorWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 58,
+      width: SizeConfigs.getPercentageWidth(14),
       height: 3.5,
       decoration: BoxDecoration(
           color: currentScreen ? ColorConfig.primary : ColorConfig.scaffold,

@@ -22,7 +22,7 @@ class card2 extends StatelessWidget {
                 borderRadius: BorderRadius.circular(60),
                 color: Colors.black,
               ),
-              height: 35,
+              height: 30,
               width: 90,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -37,7 +37,7 @@ class card2 extends StatelessWidget {
                   ),
                 ],
               ),
-            ).paddingBottom(10),
+            ).paddingBottom(1),
             Row(
               children: [
                 Text(
@@ -45,27 +45,27 @@ class card2 extends StatelessWidget {
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: ColorConfig.white,
-                      fontSize: 28),
+                      fontSize: 25),
                 ),
                 Text(
                   " 25",
-                  style: TextStyle(color: ColorConfig.gray, fontSize: 25),
+                  style: TextStyle(color: ColorConfig.gray, fontSize: 20),
                 ),
               ],
             ),
             Text(
               "서로 아껴주고 힘이 되어줄 사람 찾아요",
-              style: TextStyle(color: ColorConfig.gray, fontSize: 15),
+              style: TextStyle(color: ColorConfig.gray, fontSize: 13),
             ),
             5.height,
             Text(
               "선릉으로 직장 다니고 있고 여행 좋아해요",
-              style: TextStyle(color: ColorConfig.gray, fontSize: 15),
+              style: TextStyle(color: ColorConfig.gray, fontSize: 13),
             ),
             5.height,
             Text(
               "이상한 이야기하시는 분 바로 차단입니다",
-              style: TextStyle(color: ColorConfig.gray, fontSize: 15),
+              style: TextStyle(color: ColorConfig.gray, fontSize: 13),
             ),
           ],
         ),
@@ -96,7 +96,7 @@ class card3 extends StatelessWidget {
                 borderRadius: BorderRadius.circular(60),
                 color: Colors.black,
               ),
-              height: 35,
+              height: 30,
               width: 90,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -111,7 +111,7 @@ class card3 extends StatelessWidget {
                   ),
                 ],
               ),
-            ).paddingBottom(10),
+            ).paddingBottom(1),
             Row(
               children: [
                 Text(
@@ -119,11 +119,11 @@ class card3 extends StatelessWidget {
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: ColorConfig.white,
-                      fontSize: 28),
+                      fontSize: 25),
                 ),
                 Text(
                   " 25",
-                  style: TextStyle(color: ColorConfig.gray, fontSize: 25),
+                  style: TextStyle(color: ColorConfig.gray, fontSize: 20),
                 ),
               ],
             ),
@@ -133,7 +133,7 @@ class card3 extends StatelessWidget {
                 border: Border.all(color: Color(0xffFF006B)),
                 color: Color(0xff621133).withOpacity(0.6),
               ),
-              height: 45,
+              height: 39,
               width: 170,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -146,7 +146,7 @@ class card3 extends StatelessWidget {
                     "진지한 연애를 찾는 중",
                     style: TextStyle(
                         color: Color(0xffFF006B),
-                        fontSize: 14,
+                        fontSize: 13,
                         fontWeight: FontWeight.bold),
                   ),
                 ],
@@ -216,7 +216,7 @@ class card1 extends StatelessWidget {
                 borderRadius: BorderRadius.circular(60),
                 color: Colors.black,
               ),
-              height: 35,
+              height: 30,
               width: 90,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -239,11 +239,11 @@ class card1 extends StatelessWidget {
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: ColorConfig.white,
-                      fontSize: 28),
+                      fontSize: 25),
                 ),
                 Text(
                   " 25",
-                  style: TextStyle(color: ColorConfig.gray, fontSize: 25),
+                  style: TextStyle(color: ColorConfig.gray, fontSize: 20),
                 ),
               ],
             ),

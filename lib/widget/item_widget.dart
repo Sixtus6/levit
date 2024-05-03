@@ -17,7 +17,7 @@ class itemWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(100),
         color: Colors.black,
       ),
-      height: 40,
+      height: 30,
       width: width,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -27,7 +27,7 @@ class itemWidget extends StatelessWidget {
                   text,
                   style: TextStyle(
                     color: Color(0xffF5F5F5),
-                    fontSize: 14,
+                    fontSize: 13,
                   ),
                 ),
               ]
@@ -40,7 +40,7 @@ class itemWidget extends StatelessWidget {
                   text,
                   style: TextStyle(
                     color: Color(0xffF5F5F5),
-                    fontSize: 14,
+                    fontSize: 13,
                   ),
                 ),
               ],
