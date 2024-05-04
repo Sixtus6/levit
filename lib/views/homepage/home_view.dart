@@ -7,7 +7,8 @@ import 'package:luvit/views/homepage/home_viewmodel.dart';
 import 'package:luvit/widget/cards_text.dart';
 import 'package:luvit/widget/custom_appbar.dart';
 import 'package:luvit/widget/indicator_widget.dart';
-import 'package:luvit/widget/navBar.dart';
+
+import 'package:luvit/widget/nav_bar.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:stacked/stacked.dart';
 
@@ -16,6 +17,7 @@ class HomeScreenView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfigs().init(context);
     return ViewModelBuilder.reactive(
         viewModelBuilder: () => HomeScreenViewModel(),
         onViewModelReady: (viewModel) => viewModel.init(),
@@ -26,7 +28,11 @@ class HomeScreenView extends StatelessWidget {
                     body: model.imageList.isEmpty
                         ? Column(
                             children: [
-                              20.height,
+                              SizeConfigs.screenHeight <= 900
+                                  ? SizeConfigs.getPercentageHeight(2)
+                                      .toInt()
+                                      .height
+                                  : Container(),
                               //APPBAR
                               const CustomAppbar().paddingBottom(
                                   SizeConfigs.getPercentageHeight(30)),
@@ -46,9 +52,15 @@ class HomeScreenView extends StatelessWidget {
                           )
                         : Column(
                             children: [
-                              20.height,
+                              SizeConfigs.screenHeight <= 900
+                                  ? SizeConfigs.getPercentageHeight(2)
+                                      .toInt()
+                                      .height
+                                  : Container(),
+                              // 20.height,
                               //APPBAR
-                              const CustomAppbar().paddingBottom(29),
+                              const CustomAppbar().paddingBottom(
+                                  SizeConfigs.getPercentageHeight(2)),
                               Stack(
                                 children: [
                                   SizedBox(
@@ -70,244 +82,236 @@ class HomeScreenView extends StatelessWidget {
                                           },
                                           child: Stack(
                                             children: [
-                                              GestureDetector(
-                                                child: Draggable(
-                                                  data: index,
-                                                  feedback: Container(
-                                                    width: SizeConfigs
-                                                        .getPercentageWidth(75),
-                                                    decoration: BoxDecoration(
-                                                        border: Border.all(
-                                                            color: ColorConfig
-                                                                .shade),
-                                                        image: DecorationImage(
-                                                          fit: BoxFit.fitHeight,
-                                                          image: AssetImage(
-                                                              model.imageList[
-                                                                  index]),
-                                                        ),
-                                                        //  color: ColorConfig.white,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(20)),
-                                                    height: SizeConfigs
-                                                        .getPercentageHeight(
-                                                            60),
-                                                    child: Column(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment.end,
-                                                      children: [
-                                                        Container(
-                                                          width:
-                                                              double.infinity,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        19),
-                                                            gradient:
-                                                                const LinearGradient(
-                                                              begin: Alignment
-                                                                  .topCenter,
-                                                              end: Alignment
-                                                                  .bottomCenter,
-                                                              colors: [
-                                                                Color.fromARGB(
-                                                                    0,
-                                                                    110,
-                                                                    109,
-                                                                    109),
-                                                                Colors
-                                                                    .black, // Transparent color at the top
-                                                                // Solid color at the bottom
-                                                              ],
-                                                            ),
-                                                          ),
-                                                          height: 310,
-                                                        )
-                                                      ],
-                                                    ),
-                                                  ),
-                                                  childWhenDragging: Stack(
+                                              Draggable(
+                                                data: index,
+                                                feedback: Container(
+                                                  width: SizeConfigs
+                                                      .getPercentageWidth(75),
+                                                  decoration: BoxDecoration(
+                                                      border: Border.all(
+                                                          color: ColorConfig
+                                                              .shade),
+                                                      image: DecorationImage(
+                                                        fit: BoxFit.fitWidth,
+                                                        image: AssetImage(model
+                                                            .imageList[index]),
+                                                      ),
+                                                      //  color: ColorConfig.white,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              20)),
+                                                  height: SizeConfigs
+                                                      .getPercentageHeight(60),
+                                                  child: Column(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.end,
                                                     children: [
                                                       Container(
+                                                        width: double.infinity,
                                                         decoration:
                                                             BoxDecoration(
-                                                                // image: DecorationImage(
-                                                                //   fit: BoxFit.fitHeight,
-                                                                //   image: AssetImage(
-                                                                //       model.imageList[index]),
-                                                                // ),
-                                                                color: Colors
-                                                                    .black,
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            20)),
-                                                        height: SizeConfigs
-                                                            .getPercentageHeight(
-                                                                100),
-                                                      ).paddingSymmetric(
-                                                          horizontal: 10),
-                                                      Positioned(
-                                                        //top: 0,
-                                                        left: 10,
-                                                        child: DragTarget(
-                                                          onWillAccept:
-                                                              (data) => true,
-                                                          builder: (BuildContext
-                                                                      context,
-                                                                  accepted,
-                                                                  reject) =>
-                                                              Container(
-                                                            width: 100,
-                                                            height: SizeConfigs
-                                                                .getPercentageHeight(
-                                                                    200),
-                                                            color: Colors
-                                                                .transparent,
-                                                          ),
-                                                          // onAcceptWithDetails: (details) {
-                                                          //   model.deleteImage(int.parse(
-                                                          //       details.data.toString()));
-                                                          //   print("leavwe");
-                                                          // },
-                                                          onLeave: (data) {
-                                                            model.deleteImage(
-                                                                int.parse(data
-                                                                    .toString()));
-                                                          },
-                                                          // onAccept: (data) =>
-                                                          //     model.deleteImage(int.parse(
-                                                          //         data.toString())),
-                                                        ),
-                                                      ),
-                                                      Positioned(
-                                                        bottom: 0,
-                                                        left: 20,
-                                                        child: DragTarget(
-                                                          onWillAccept:
-                                                              (data) => true,
-                                                          builder: (BuildContext
-                                                                      context,
-                                                                  accepted,
-                                                                  reject) =>
-                                                              Container(
-                                                            height: SizeConfigs
-                                                                .getPercentageHeight(
-                                                                    10),
-                                                            width: SizeConfigs
-                                                                .getPercentageWidth(
-                                                                    80),
-                                                            color: Colors
-                                                                .transparent,
-                                                          ),
-                                                          // onAcceptWithDetails:
-                                                          //     (details) {
-                                                          //   print("leavwe1");
-                                                          //   print(int.parse(details.data
-                                                          //       .toString()));
-
-                                                          //   model.deleteImage(int.parse(
-                                                          //       details.data
-                                                          //           .toString()));
-                                                          // },
-                                                          onLeave: (data) {
-                                                            model.deleteImage(
-                                                                int.parse(data
-                                                                    .toString()));
-                                                          },
-                                                          // onAccept: (int data) =>
-                                                          //     model.deleteImage(data)
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  child: Container(
-                                                    width: double.infinity,
-                                                    decoration: BoxDecoration(
-                                                        border: Border.all(
-                                                            color: ColorConfig
-                                                                .shade),
-                                                        image: DecorationImage(
-                                                          fit: BoxFit.fitHeight,
-                                                          image: AssetImage(
-                                                              model.imageList[
-                                                                  index]),
-                                                        ),
-                                                        // color: ColorConfig.white,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(20)),
-                                                    height: SizeConfigs
-                                                        .getPercentageHeight(
-                                                            100),
-                                                    child: Column(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment.end,
-                                                      children: [
-                                                        Container(
-                                                          width:
-                                                              double.infinity,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        19),
-                                                            gradient:
-                                                                const LinearGradient(
-                                                              begin: Alignment
-                                                                  .topCenter,
-                                                              end: Alignment
-                                                                  .bottomCenter,
-                                                              colors: [
-                                                                Colors
-                                                                    .transparent,
-                                                                Colors
-                                                                    .black, // Transparent color at the top
-                                                                // Solid color at the bottom
-                                                              ],
-                                                            ),
-                                                          ),
-                                                          height: 310,
-                                                          child: Column(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .end,
-                                                            children: [
-                                                              model.imageList[index] ==
-                                                                      ImageConfig
-                                                                          .image1
-                                                                  ? const Card1()
-                                                                      .paddingSymmetric(
-                                                                          horizontal:
-                                                                              20)
-                                                                  : model.imageList[
-                                                                              index] ==
-                                                                          ImageConfig
-                                                                              .image2
-                                                                      ? const Card2().paddingSymmetric(
-                                                                          horizontal:
-                                                                              20)
-                                                                      : const Card3().paddingSymmetric(
-                                                                          horizontal:
-                                                                              20),
-                                                              Image.asset(
-                                                                ImageConfig
-                                                                    .arrow,
-                                                                height: 9,
-                                                              ).paddingSymmetric(
-                                                                  vertical: 30),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(19),
+                                                          gradient:
+                                                              const LinearGradient(
+                                                            begin: Alignment
+                                                                .topCenter,
+                                                            end: Alignment
+                                                                .bottomCenter,
+                                                            colors: [
+                                                              Color.fromARGB(
+                                                                  0,
+                                                                  110,
+                                                                  109,
+                                                                  109),
+                                                              Colors
+                                                                  .black, // Transparent color at the top
+                                                              // Solid color at the bottom
                                                             ],
                                                           ),
-                                                        )
-                                                      ],
-                                                    ),
-                                                  ).paddingSymmetric(
-                                                      horizontal: 10),
+                                                        ),
+                                                        height: 310,
+                                                      )
+                                                    ],
+                                                  ),
                                                 ),
+                                                childWhenDragging: Stack(
+                                                  children: [
+                                                    Container(
+                                                      decoration: BoxDecoration(
+                                                          // image: DecorationImage(
+                                                          //   fit: BoxFit.fitHeight,
+                                                          //   image: AssetImage(
+                                                          //       model.imageList[index]),
+                                                          // ),
+                                                          color: Colors.black,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      20)),
+                                                      height: SizeConfigs
+                                                          .getPercentageHeight(
+                                                              100),
+                                                    ).paddingSymmetric(
+                                                        horizontal: 10),
+                                                    Positioned(
+                                                      //top: 0,
+                                                      left: 10,
+                                                      child: DragTarget(
+                                                        onWillAccept: (data) =>
+                                                            true,
+                                                        builder: (BuildContext
+                                                                    context,
+                                                                accepted,
+                                                                reject) =>
+                                                            Container(
+                                                          width: 100,
+                                                          height: SizeConfigs
+                                                              .getPercentageHeight(
+                                                                  200),
+                                                          color: Colors
+                                                              .transparent,
+                                                        ),
+                                                        // onAcceptWithDetails: (details) {
+                                                        //   model.deleteImage(int.parse(
+                                                        //       details.data.toString()));
+                                                        //   print("leavwe");
+                                                        // },
+                                                        onLeave: (data) {
+                                                          model.deleteImage(
+                                                              int.parse(data
+                                                                  .toString()));
+                                                        },
+                                                        // onAccept: (data) =>
+                                                        //     model.deleteImage(int.parse(
+                                                        //         data.toString())),
+                                                      ),
+                                                    ),
+                                                    Positioned(
+                                                      bottom: 0,
+                                                      left: 20,
+                                                      child: DragTarget(
+                                                        onWillAccept: (data) =>
+                                                            true,
+                                                        builder: (BuildContext
+                                                                    context,
+                                                                accepted,
+                                                                reject) =>
+                                                            Container(
+                                                          height: SizeConfigs
+                                                              .getPercentageHeight(
+                                                                  10),
+                                                          width: SizeConfigs
+                                                              .getPercentageWidth(
+                                                                  80),
+                                                          color: Colors
+                                                              .transparent,
+                                                        ),
+                                                        // onAcceptWithDetails:
+                                                        //     (details) {
+                                                        //   print("leavwe1");
+                                                        //   print(int.parse(details.data
+                                                        //       .toString()));
+
+                                                        //   model.deleteImage(int.parse(
+                                                        //       details.data
+                                                        //           .toString()));
+                                                        // },
+                                                        onLeave: (data) {
+                                                          model.deleteImage(
+                                                              int.parse(data
+                                                                  .toString()));
+                                                        },
+                                                        // onAccept: (int data) =>
+                                                        //     model.deleteImage(data)
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                child: Container(
+                                                  width: double.infinity,
+                                                  decoration: BoxDecoration(
+                                                      border: Border.all(
+                                                          color: ColorConfig
+                                                              .shade),
+                                                      image: DecorationImage(
+                                                        fit: BoxFit.fitHeight,
+                                                        image: AssetImage(model
+                                                            .imageList[index]),
+                                                      ),
+                                                      // color: ColorConfig.white,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              20)),
+                                                  height: SizeConfigs
+                                                      .getPercentageHeight(100),
+                                                  child: Column(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.end,
+                                                    children: [
+                                                      Container(
+                                                        width: double.infinity,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(19),
+                                                          gradient:
+                                                              const LinearGradient(
+                                                            begin: Alignment
+                                                                .topCenter,
+                                                            end: Alignment
+                                                                .bottomCenter,
+                                                            colors: [
+                                                              Colors
+                                                                  .transparent,
+                                                              Colors
+                                                                  .black, // Transparent color at the top
+                                                              // Solid color at the bottom
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        height: SizeConfigs
+                                                            .getPercentageHeight(
+                                                                37),
+                                                        child: Column(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .end,
+                                                          children: [
+                                                            model.imageList[index] ==
+                                                                    ImageConfig
+                                                                        .image1
+                                                                ? const Card1()
+                                                                    .paddingSymmetric(
+                                                                        horizontal:
+                                                                            20)
+                                                                : model.imageList[index] ==
+                                                                        ImageConfig
+                                                                            .image2
+                                                                    ? const Card2()
+                                                                        .paddingSymmetric(
+                                                                            horizontal:
+                                                                                20)
+                                                                    : const Card3().paddingSymmetric(
+                                                                        horizontal:
+                                                                            17),
+                                                            Image.asset(
+                                                              ImageConfig.arrow,
+                                                              height: 9,
+                                                            ).paddingSymmetric(
+                                                                vertical:
+                                                                    SizeConfigs
+                                                                        .getPercentageHeight(
+                                                                            3)),
+                                                          ],
+                                                        ),
+                                                      )
+                                                    ],
+                                                  ),
+                                                ).paddingSymmetric(
+                                                    horizontal: 10),
                                               ),
                                               Positioned(
                                                 top: 0,
@@ -368,7 +372,7 @@ class HomeScreenView extends StatelessWidget {
                                   ),
                                   Positioned(
                                     top: 18,
-                                    left: 40,
+                                    left: SizeConfigs.getPercentageWidth(10),
                                     child: Row(
                                         children: List.generate(
                                       model.imageList.length,
@@ -384,7 +388,9 @@ class HomeScreenView extends StatelessWidget {
                               )
                             ],
                           ),
-                    bottomNavigationBar: const CustomNavBar()),
+                    bottomNavigationBar: CustomNavBar(
+                      data: model.navData,
+                    )),
               ),
             )));
   }

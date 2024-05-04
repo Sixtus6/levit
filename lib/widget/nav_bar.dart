@@ -6,7 +6,9 @@ import 'package:luvit/widget/navigation_items.dart';
 class CustomNavBar extends StatelessWidget {
   const CustomNavBar({
     super.key,
+    required this.data,
   });
+  final List data;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +16,7 @@ class CustomNavBar extends StatelessWidget {
       alignment: Alignment.bottomCenter,
       children: [
         Container(
-          height: 110,
+          height: 100,
         ),
         Positioned(
           top: 0,
@@ -25,19 +27,19 @@ class CustomNavBar extends StatelessWidget {
                 borderRadius: BorderRadius.circular(100),
                 color: Colors.black,
                 border: Border.all(
-                    width: 2, color: ColorConfig.shade.withOpacity(0.5))),
+                    width: 2, color: ColorConfig.shade.withOpacity(0.6))),
           ),
         ),
         Container(
-          height: 90,
+          height: 80,
           decoration: BoxDecoration(
-              color: ColorConfig.shade.withOpacity(0.5),
+              color: ColorConfig.shade.withOpacity(0.6),
               borderRadius:
                   const BorderRadius.vertical(top: Radius.circular(20))),
           child: Container(
             width: double.infinity,
             height: 78,
-            margin: const EdgeInsets.only(top: 3),
+            margin: const EdgeInsets.only(top: 2),
             decoration: const BoxDecoration(
                 color: Colors.black,
                 borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
@@ -46,7 +48,7 @@ class CustomNavBar extends StatelessWidget {
         Positioned(
           top: 10,
           child: Container(
-            width: 160,
+            width: 161,
             height: 160,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(100),
@@ -57,8 +59,8 @@ class CustomNavBar extends StatelessWidget {
         Positioned(
           top: 1,
           child: Container(
-            width: 99,
-            height: 99,
+            width: 89,
+            height: 89,
             decoration: BoxDecoration(
               image: const DecorationImage(image: AssetImage(ImageConfig.star)),
               borderRadius: BorderRadius.circular(100),
@@ -66,30 +68,32 @@ class CustomNavBar extends StatelessWidget {
             ),
           ),
         ),
-        Navidget(
-          label: '홈',
-          left: 21,
-          selected: true,
-          image: ImageConfig.homeIcon,
-        ),
-        Navidget(
-          label: '스팟',
-          left: 100,
-          //selected: true,
-          image: ImageConfig.navIcon,
-        ),
-        Navidget(
-          label: '채팅',
-          left: 286,
-          //selected: true,
-          image: ImageConfig.chatIcon,
-        ),
-        Navidget(
-          label: '마이',
-          left: 365,
-          //selected: true,
-          image: ImageConfig.personIcon,
-        ),
+        Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: MediaQuery.of(context).size.width * 0.07,
+            // vertical: SizeConfigs.getPercentageHeight(1),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              ...List.generate(
+                  5,
+                  (index) => Container(
+                        height: 60,
+                        width: 30,
+                        color: index == 2
+                            ? Colors.transparent
+                            : Colors.transparent,
+                        child: NavWidget(
+                          label: index == 2 ? "" : data[index]["text"],
+                          left: 28,
+                          selected: index == 0 ? true : false,
+                          image: data[index]["icon"],
+                        ),
+                      ))
+            ],
+          ),
+        )
       ],
     );
   }

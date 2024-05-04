@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:luvit/config/color.dart';
 import 'package:luvit/config/images.dart';
+import 'package:luvit/config/size.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 class CustomAppbar extends StatelessWidget {
@@ -16,11 +17,15 @@ class CustomAppbar extends StatelessWidget {
           ImageConfig.map2,
           height: 35,
         ),
-        const Text(
+        Text(
           "매일 새로운 친구들을 소개시켜드려요",
           style: TextStyle(
-              color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold),
-        ),
+              color: Colors.white,
+              fontSize: SizeConfigs.screenHeight <= 900 ? 14 : 16,
+              fontWeight: FontWeight.bold),
+        ).onTap(() {
+          //  print(SizeConfigs.screenHeight);
+        }),
         Container().expand(),
         Container(
           decoration: BoxDecoration(

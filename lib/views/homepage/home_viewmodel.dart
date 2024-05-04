@@ -8,6 +8,13 @@ class HomeScreenViewModel extends BaseViewModel {
   late PageController pageController;
   bool isDraggedToLeft = false;
   bool isDraggedToBottom = false;
+  List navData = [
+    {"icon": ImageConfig.homeIcon, "text": '홈'},
+    {"icon": ImageConfig.map2, "text": '스팟'},
+    {"icon": ImageConfig.map2, "text": '채팅'},
+    {"icon": ImageConfig.chatIcon, "text": '마이'},
+    {"icon": ImageConfig.personIcon, "text": '마이'},
+  ];
 
   void init() {
     // print("initialize");

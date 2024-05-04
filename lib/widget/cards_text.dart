@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:luvit/config/color.dart';
 import 'package:luvit/config/images.dart';
+import 'package:luvit/config/size.dart';
 import 'package:luvit/widget/item_widget.dart';
 import 'package:nb_utils/nb_utils.dart';
 
@@ -192,7 +193,7 @@ class Card3 extends StatelessWidget {
         Image.asset(
           ImageConfig.loveCircle,
           height: 50,
-        ).paddingTop(110)
+        ).paddingTop(SizeConfigs.getPercentageHeight(15))
       ],
     );
   }

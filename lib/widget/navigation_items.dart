@@ -19,29 +19,27 @@ class NavWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-      top: 40,
-      left: left,
-      child: Column(
-        children: [
-          Container(
-            width: 30,
-            height: 30,
-            decoration: BoxDecoration(
-              image: DecorationImage(image: AssetImage(image)),
-              // borderRadius: BorderRadius.circular(100),
-              //  color: Colors.amber,
-            ),
-          ),
-          5.height,
-          Text(
-            label,
-            style: TextStyle(
-                color: selected ? ColorConfig.primary : ColorConfig.shade,
-                fontSize: 17),
-          )
-        ],
-      ),
+    return Column(
+      children: [
+        label == ""
+            ? Container()
+            : Container(
+                width: 30,
+                height: 30,
+                decoration: BoxDecoration(
+                  image: DecorationImage(image: AssetImage(image)),
+                  // borderRadius: BorderRadius.circular(100),
+                  //  color: Colors.amber,
+                ),
+              ),
+        5.height,
+        Text(
+          label == "" ? '' : label,
+          style: TextStyle(
+              color: selected ? ColorConfig.primary : ColorConfig.shade,
+              fontSize: 16),
+        )
+      ],
     );
   }
 }
